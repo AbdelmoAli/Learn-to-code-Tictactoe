@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import *
-from PyQt5.QtGui import QPainter, QColor
-from PyQt5.QtCore import Qt, QPoint
+from PyQt5.QtGui import QPainter, QColor, QIcon
+from PyQt5.QtCore import Qt, QPoint, pyqtSlot
 
 from src.TicTacToeGUI import TicTacToeGUI
 
@@ -22,6 +22,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
         self.setWindowTitle("Learn Python by coding a game - Tic Tac Toe")
+        # LEFT LAYOUT
 
         # The game
         game = TicTacToeGUI()
@@ -31,23 +32,39 @@ class MainWindow(QMainWindow):
         inst.setReadOnly(True)
         inst.setHtml(html_string + lorem.text())
 
-        # The text field to insert the code
-        code = QTextEdit()
-        # code.append("HERE the code to be edited")
-        code.append(lorem.text())
-
         # Layout to arrange all of it
         lay_left = QVBoxLayout()
         lay_left.addWidget(game)
         lay_left.setAlignment(game, Qt.AlignHCenter)
         lay_left.addWidget(inst)
 
+        # RIGHT LAYOUT
+
+        # The text field to insert the code
+        code = QTextEdit()
+
+        # Function to write in fichier.py
+        def submit_text(self):
+            fichier = open("C:/Users/pbria/Desktop/Projet_codingweek/codingweek-tic-tac-toe/src/submitted_files/file.py", "w")
+            fichier.write(code.toPlainText())
+            fichier.close()
+
+        # Button to submit text -> fichier.py
+        submit_button = QPushButton("Submit code",self)
+        submit_button.clicked.connect(submit_text)
+
+        # Layout to arrange all of it
         lay_right = QVBoxLayout()
-        # TODO TEST BUTTON
+        lay_right = QVBoxLayout()
+        lay_right.addWidget(code)
+        lay_right.addWidget(submit_button)
+
+        #GLOBAL LAYOUT
 
         lay_global = QHBoxLayout()
+        
         lay_global.addLayout(lay_left)
-        lay_global.addWidget(code)
+        lay_global.addLayout(lay_right)
 
         widget = QWidget()
         widget.setLayout(lay_global)
