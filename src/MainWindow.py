@@ -1,38 +1,30 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QPainter, QColor, QIcon
-from PyQt5.QtCore import Qt, QPoint, QUrl, pyqtSlot
+from PyQt5.QtCore import Qt, QPoint, QUrl
 
 from src.TicTacToeGUI import TicTacToeGUI
 from src.syntax import *
-
-import lorem
-
-html_string = """\
-<h1> Titre H1 </h1>
-<h2> Titre H2 </h2>
-<h3> Titre H3 </h3>
-<h4> Titre H4 </h4>
-<h5> Titre H5 </h5>
-<pre>
-    print("Hello World !") 
-    print("Working f****** well !")
-</pre>
-"""
-
-html_code = """\
-<body bgcolor="#1E1E1E">
-</body>
-
-"""
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
         self.setWindowTitle("Learn Python by coding a game - Tic Tac Toe")
-        # LEFT LAYOUT
+        
+        def show_popup(string):
+            dialog = QMessageBox()
+            if string in ['O','X'] : 
+                dialog.setText("The game is over !\nCongrate player %s : you win !" % string)
+            else:
+                dialog.setText("The game is over !\nIt's a drawn, try again !")
 
+            dialog.setModal(True)
+            dialog.exec()
+            game.reset()
+
+        ## LEFT LAYOUT
         # The game
         game = TicTacToeGUI()
+        game.ended.connect(show_popup)
 
         # The lesson + instructions
         inst = QTextBrowser()
@@ -45,11 +37,9 @@ class MainWindow(QMainWindow):
         lay_left.setAlignment(game, Qt.AlignHCenter)
         lay_left.addWidget(inst, Qt.AlignHCenter)
 
-        # RIGHT LAYOUT
-
+        ## RIGHT LAYOUT
         # The text field to insert the code
         code = QTextEdit()
-        code.setHtml(html_code)
         code.setTextColor(QColor(Qt.white))
         highlight = PythonHighlighter(code)
 
@@ -69,8 +59,7 @@ class MainWindow(QMainWindow):
         lay_right.addWidget(code)
         lay_right.addWidget(submit_button)
 
-        #GLOBAL LAYOUT
-
+        ##GLOBAL LAYOUT
         lay_global = QHBoxLayout()
         
         lay_global.addLayout(lay_left)
