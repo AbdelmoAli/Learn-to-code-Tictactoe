@@ -45,7 +45,7 @@ class MainWindow(QMainWindow):
 
         # Function to write in fichier.py
         def submit_text(self):
-            fichier = open("C:/Users/pbria/Desktop/Projet_codingweek/codingweek-tic-tac-toe/src/submitted_files/file.py", "w")
+            fichier = open("src/submitted_files/file.py", "w")
             fichier.write(code.toPlainText())
             fichier.close()
 
