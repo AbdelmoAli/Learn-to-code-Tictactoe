@@ -4,6 +4,7 @@ from PyQt5.QtCore import Qt, QPoint, QUrl, pyqtSlot
 
 from src.TicTacToeGUI import TicTacToeGUI
 from src.syntax import *
+from src.modify_function import modify_function
 
 import lorem
 
@@ -49,14 +50,14 @@ class MainWindow(QMainWindow):
 
         # The text field to insert the code
         code = QTextEdit()
-        code.setHtml(html_code)
-        code.setTextColor(QColor(Qt.white))
+        #code.setHtml(html_code)
+        #code.setTextColor(QColor(Qt.white))
         highlight = PythonHighlighter(code)
 
         # Function to write in fichier.py
         def submit_text(self):
             fichier = open("src/submitted_files/file.py", "w")
-            fichier.write(code.toPlainText())
+            fichier.write('def function()\n\t' + str(code.toPlainText()) + '\n\t\treturn ' + modify_function() + '(*L)' )
             fichier.close()
 
         # Button to submit text -> fichier.py

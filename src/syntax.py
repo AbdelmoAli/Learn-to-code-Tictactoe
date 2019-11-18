@@ -26,11 +26,11 @@ STYLES = {
     'keyword': format('blue'),
     'operator': format('red'),
     'brace': format('darkGray'),
-    'defclass': format('white', 'bold'),
+    'defclass': format('black', 'bold'),
     'string': format('magenta'),
     'string2': format('darkMagenta'),
     'comment': format('darkGreen', 'italic'),
-    'self': format('white', 'italic'),
+    'self': format('black', 'italic'),
     'numbers': format('brown'),
 }
 
@@ -163,7 +163,7 @@ class PythonHighlighter (QSyntaxHighlighter):
             # No; multi-line string
             else:
                 self.setCurrentBlockState(in_state)
-                length = text.length() - start + add
+                length = len(text) - start + add
             # Apply formatting
             self.setFormat(start, length, style)
             # Look for the next match
