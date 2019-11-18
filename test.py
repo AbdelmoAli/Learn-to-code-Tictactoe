@@ -1,11 +1,11 @@
 import importlib
 
-def check_for_errors(name_of_fun,L):
+def check_for_errors(L):
     boolean=False
     msg=""
     try:
-        mymodule=importlib.import_module("dossier.func")
-        mymodule.function(*L)
+        mymodule=importlib.import_module("dossier.func") #désigne le fichier où est stocké la 'réponse' temporaire
+        mymodule.function(L)
         print("This function did not raise any error.")
         boolean=True
     except NameError:
@@ -27,4 +27,4 @@ def check_for_errors(name_of_fun,L):
     print(boolean, msg) 
     return boolean, msg
 
-check_for_errors("hmm",[])
+check_for_errors([])
