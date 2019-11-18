@@ -10,6 +10,8 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__()
         self.setWindowTitle("Learn Python by coding a game - Tic Tac Toe")
         
+
+        ## SLOTS
         def show_popup(string):
             dialog = QMessageBox()
             if string in ['O','X'] :
@@ -22,6 +24,12 @@ class MainWindow(QMainWindow):
             dialog.setModal(True)
             dialog.exec()
             game.reset()
+
+        def submit_text(self):
+            fichier = open("src/submitted_files/file.py", "w")
+            fichier.write(code.toPlainText())
+            fichier.close()
+
 
         ## LEFT LAYOUT
         # The game
@@ -39,17 +47,12 @@ class MainWindow(QMainWindow):
         lay_left.setAlignment(game, Qt.AlignHCenter)
         lay_left.addWidget(inst, Qt.AlignHCenter)
 
+
         ## RIGHT LAYOUT
         # The text field to insert the code
         code = QTextEdit()
         code.setTextColor(QColor(Qt.white))
         highlight = PythonHighlighter(code)
-
-        # Function to write in fichier.py
-        def submit_text(self):
-            fichier = open("src/submitted_files/file.py", "w")
-            fichier.write(code.toPlainText())
-            fichier.close()
 
         # Button to submit text -> fichier.py
         submit_button = QPushButton("Submit code",self)
@@ -61,7 +64,8 @@ class MainWindow(QMainWindow):
         lay_right.addWidget(code)
         lay_right.addWidget(submit_button)
 
-        ##GLOBAL LAYOUT
+
+        ## GLOBAL LAYOUT
         lay_global = QHBoxLayout()
         
         lay_global.addLayout(lay_left)
