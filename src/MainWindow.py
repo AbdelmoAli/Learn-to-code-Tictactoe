@@ -12,9 +12,11 @@ class MainWindow(QMainWindow):
         
         def show_popup(string):
             dialog = QMessageBox()
-            if string in ['O','X'] : 
-                dialog.setText("The game is over !\nCongrate player %s : you win !" % string)
+            if string in ['O','X'] :
+                dialog.setWindowTitle("Victory")
+                dialog.setText("The game is over !\nCongrates player %s : you win !" % string)
             else:
+                dialog.setWindowTitle("Drawn")
                 dialog.setText("The game is over !\nIt's a drawn, try again !")
 
             dialog.setModal(True)
