@@ -3,6 +3,7 @@ from PyQt5.QtGui import QPainter, QColor, QIcon
 from PyQt5.QtCore import Qt, QPoint, pyqtSlot
 
 from src.TicTacToeGUI import TicTacToeGUI
+from src.syntax import *
 
 import lorem
 
@@ -16,6 +17,12 @@ html_string = """\
     print("Hello World !") 
     print("Working f****** well !")
 </pre>
+"""
+
+html_code = """\
+<body bgcolor="#1E1E1E">
+</body>
+
 """
 
 class MainWindow(QMainWindow):
@@ -42,6 +49,9 @@ class MainWindow(QMainWindow):
 
         # The text field to insert the code
         code = QTextEdit()
+        code.setHtml(html_code)
+        code.setTextColor(QColor(Qt.white))
+        highlight = PythonHighlighter(code)
 
         # Function to write in fichier.py
         def submit_text(self):
