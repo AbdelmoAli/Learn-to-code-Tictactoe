@@ -1,39 +1,41 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QPainter, QColor, QIcon
-from PyQt5.QtCore import Qt, QPoint, QUrl, pyqtSlot
+from PyQt5.QtCore import Qt, QPoint, QUrl
 
 from src.TicTacToeGUI import TicTacToeGUI
 from src.syntax import *
 from src.modify_function import modify_function
 
-import lorem
-
-html_string = """\
-<h1> Titre H1 </h1>
-<h2> Titre H2 </h2>
-<h3> Titre H3 </h3>
-<h4> Titre H4 </h4>
-<h5> Titre H5 </h5>
-<pre>
-    print("Hello World !") 
-    print("Working f****** well !")
-</pre>
-"""
-
-html_code = """\
-<body bgcolor="#1E1E1E">
-</body>
-
-"""
-
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
         self.setWindowTitle("Learn Python by coding a game - Tic Tac Toe")
-        # LEFT LAYOUT
+        
 
+        ## SLOTS
+        def show_popup(string):
+            dialog = QMessageBox()
+            if string in ['O','X'] :
+                dialog.setWindowTitle("Victory")
+                dialog.setText("The game is over !\nCongrates player %s : you win !" % string)
+            else:
+                dialog.setWindowTitle("Drawn")
+                dialog.setText("The game is over !\nIt's a drawn, try again !")
+
+            dialog.setModal(True)
+            dialog.exec()
+            game.reset()
+
+        def submit_text(self):
+            fichier = open("src/submitted_files/file.py", "w")
+            fichier.write(code.toPlainText())
+            fichier.close()
+
+
+        ## LEFT LAYOUT
         # The game
         game = TicTacToeGUI()
+        game.ended.connect(show_popup)
 
         # The lesson + instructions
         inst = QTextBrowser()
@@ -46,10 +48,11 @@ class MainWindow(QMainWindow):
         lay_left.setAlignment(game, Qt.AlignHCenter)
         lay_left.addWidget(inst, Qt.AlignHCenter)
 
-        # RIGHT LAYOUT
 
+        ## RIGHT LAYOUT
         # The text field to insert the code
         code = QTextEdit()
+<<<<<<< HEAD
         #code.setHtml(html_code)
         #code.setTextColor(QColor(Qt.white))
         highlight = PythonHighlighter(code)
@@ -60,6 +63,11 @@ class MainWindow(QMainWindow):
             fichier.write('def function()\n\t' + str(code.toPlainText()) + '\n\t\treturn ' + modify_function() + '(*L)' )
             fichier.close()
 
+=======
+        code.setTextColor(QColor(Qt.white))
+        highlight = PythonHighlighter(code)
+
+>>>>>>> f28edab2905d07f66897af908832711ede8c9be4
         # Button to submit text -> fichier.py
         submit_button = QPushButton("Submit code",self)
         submit_button.clicked.connect(submit_text)
@@ -70,8 +78,8 @@ class MainWindow(QMainWindow):
         lay_right.addWidget(code)
         lay_right.addWidget(submit_button)
 
-        #GLOBAL LAYOUT
 
+        ## GLOBAL LAYOUT
         lay_global = QHBoxLayout()
         
         lay_global.addLayout(lay_left)

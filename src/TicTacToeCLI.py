@@ -6,6 +6,10 @@ class TicTacToeCLI():
         self.grid = self.empty_grid()
         self.mark = 'O'
 
+    def reset(self):
+        self.grid = self.empty_grid()
+        self.mark = 'O'
+
     def __str__(self):
         return ('\n-----\n').join( '|'.join(self.grid[i]) for i in range(3))
 
