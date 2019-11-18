@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QPainter, QColor, QIcon
-from PyQt5.QtCore import Qt, QPoint, pyqtSlot
+from PyQt5.QtCore import Qt, QPoint, QUrl, pyqtSlot
 
 from src.TicTacToeGUI import TicTacToeGUI
 
@@ -28,15 +28,15 @@ class MainWindow(QMainWindow):
         game = TicTacToeGUI()
 
         # The lesson + instructions
-        inst = QTextEdit()
-        inst.setReadOnly(True)
-        inst.setHtml(html_string + lorem.text())
+        inst = QTextBrowser()
+        inst.setStyleSheet("background-color: rgb(240, 240, 240); border: none;")
+        inst.setSource(QUrl("file:src/res/lesson1.htm"))
 
         # Layout to arrange all of it
         lay_left = QVBoxLayout()
         lay_left.addWidget(game)
         lay_left.setAlignment(game, Qt.AlignHCenter)
-        lay_left.addWidget(inst)
+        lay_left.addWidget(inst, Qt.AlignHCenter)
 
         # RIGHT LAYOUT
 
