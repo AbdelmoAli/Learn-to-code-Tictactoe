@@ -4,7 +4,7 @@ def check_for_errors(L):
     boolean=False
     msg=""
     try:
-        mymodule=importlib.import_module("dossier.func") #désigne le fichier où est stocké la 'réponse' temporaire
+        mymodule=importlib.import_module("submitted_files.file") #désigne le fichier où est stocké la 'réponse' temporaire
         mymodule.function(L)
         print("This function did not raise any error.")
         boolean=True
@@ -27,4 +27,4 @@ def check_for_errors(L):
     print(boolean, msg) 
     return boolean, msg
 
-check_for_errors([])
+check_for_errors([1,1,1])
