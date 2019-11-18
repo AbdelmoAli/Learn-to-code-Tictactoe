@@ -2,13 +2,13 @@
 
 import sys
 
-from PyQt5.QtCore import QRegExp
+from PyQt5.QtCore import QRegExp, Qt
 from PyQt5.QtGui import QColor, QTextCharFormat, QFont, QSyntaxHighlighter
 
 def format(color, style=''):
     """Return a QTextCharFormat with the given attributes.
     """
-    _color = QColor()
+    _color = QColor(Qt.white)
     _color.setNamedColor(color)
 
     _format = QTextCharFormat()
