@@ -1,10 +1,12 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QPainter, QColor
-from PyQt5.QtCore import Qt, QPoint
+from PyQt5.QtCore import Qt, QPoint, pyqtSignal
 
 from src.TicTacToeCLI import TicTacToeCLI
 
 class TicTacToeGUI(QWidget):
+    game_ended = pyqtSignal(string)
+
     def __init__(self):
         super(TicTacToeGUI, self).__init__()
         self.setFixedSize(180,180)
@@ -40,9 +42,9 @@ class TicTacToeGUI(QWidget):
         self.update()
 
         if self.cli.is_winner():
-            print(self.cli.get_winner() + ' won !')
+            game_ended.emit(cli.get_winner())
         elif self.cli.is_full():
-            print("It's a drawn !")
+            game_ended.emit(' ')
 
     def paintEvent(self, event):
         painter = QPainter(self)
