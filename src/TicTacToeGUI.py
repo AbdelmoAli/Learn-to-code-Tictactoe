@@ -5,7 +5,7 @@ from PyQt5.QtCore import Qt, QPoint, pyqtSignal
 from src.TicTacToeCLI import TicTacToeCLI
 
 class TicTacToeGUI(QWidget):
-    game_ended = pyqtSignal(string)
+    game_ended = pyqtSignal(str)
 
     def __init__(self):
         super(TicTacToeGUI, self).__init__()
