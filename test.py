@@ -1,9 +1,11 @@
+import importlib
+
 def check_for_errors(name_of_fun,L):
     boolean=False
     msg=""
     try:
-        from dossier.func import name_of_fun as fun
-        fun(*L)
+        mymodule=importlib.import_module("dossier.func")
+        mymodule.function(*L)
         print("This function did not raise any error.")
         boolean=True
     except NameError:
