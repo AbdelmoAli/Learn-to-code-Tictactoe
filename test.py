@@ -25,4 +25,4 @@ def check_for_errors(name_of_fun,L):
     print(boolean, msg) 
     return boolean, msg
 
-check_for_errors("hmm",[])
+check_for_errors(hmm,[])
