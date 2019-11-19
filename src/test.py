@@ -1,13 +1,13 @@
 import importlib
 
 def check_for_errors(L):
-    boolean=False
+    boolean = False
     msg=""
     try:
-        mymodule=importlib.import_module("submitted_files.file") #désigne le fichier où est stocké la 'réponse' temporaire
+        mymodule = importlib.import_module("submitted_files.function_to_test") #désigne le fichier où est stocké la 'réponse' temporaire
         mymodule.function(L)
         msg="This function did not raise any error."
-        boolean=True
+        boolean = True
     except NameError:
         msg = "You are using an undefined object."
     except IndentationError:
@@ -22,6 +22,9 @@ def check_for_errors(L):
         msg = "Some operation is taking too much memory. We invite you to check the loops (to avoid endless loop)."
     except TypeError:
         msg = "You are applying some function or operator to a type it's not supposed to support."
-    except:
+    except :
         msg= "Error of other type" 
     return boolean, msg
+
+
+
