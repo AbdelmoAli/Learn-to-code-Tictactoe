@@ -6,7 +6,7 @@ def check_for_errors(L):
     try:
         mymodule=importlib.import_module("submitted_files.file") #désigne le fichier où est stocké la 'réponse' temporaire
         mymodule.function(L)
-        print("This function did not raise any error.")
+        msg="This function did not raise any error."
         boolean=True
     except NameError:
         msg = "You are using an undefined object."
