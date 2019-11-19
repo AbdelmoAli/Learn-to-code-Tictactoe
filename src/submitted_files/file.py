@@ -1,4 +1,3 @@
-def function():
-	def function(a,b):
-		return a+b
+def function(L):
+	sfsdff
 	return (*L)
