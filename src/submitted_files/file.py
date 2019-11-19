@@ -1,4 +1,4 @@
-def function()
-	def addition(a,b):
-	return a+b
-		return test(*L)
+def function():
+	def something(a,b):
+		return a+b
+	return (*L)

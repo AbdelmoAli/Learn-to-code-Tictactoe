@@ -36,11 +36,15 @@ class MainWindow(QMainWindow):
         inst.setStyleSheet("background-color: rgb(240, 240, 240); border: none;")
         inst.setSource(QUrl("file:src/res/lesson1.html"))
 
+        # Previous lesson button
+        previous_lesson_button = QPushButton("Previous lesson",self)
+
         # Layout to arrange all of it
         lay_left = QVBoxLayout()
         lay_left.addWidget(game)
         lay_left.setAlignment(game, Qt.AlignHCenter)
         lay_left.addWidget(inst, Qt.AlignHCenter)
+        lay_left.addWidget(previous_lesson_button, Qt.AlignLeft)
 
 
         ## RIGHT LAYOUT
@@ -49,6 +53,12 @@ class MainWindow(QMainWindow):
         #code.setHtml(html_code)
         #code.setTextColor(QColor(Qt.white))
         highlight = PythonHighlighter(code)
+
+        # The errors + congrats
+
+        output = QTextBrowser()
+        output.setStyleSheet("background-color: rgb(240, 240, 240); border: none;")
+
 
         # Function to write in fichier.py
         def submit_text(self):
@@ -61,11 +71,16 @@ class MainWindow(QMainWindow):
         submit_button = QPushButton("Submit code",self)
         submit_button.clicked.connect(submit_text)
 
+        # Next lesson button
+        next_lesson_button = QPushButton("Next lesson",self)
+
         # Layout to arrange all of it
         lay_right = QVBoxLayout()
         lay_right = QVBoxLayout()
         lay_right.addWidget(code)
         lay_right.addWidget(submit_button)
+        lay_right.addWidget(output)
+        lay_right.addWidget(next_lesson_button, Qt.AlignRight)
 
 
         ## GLOBAL LAYOUT
