@@ -1,4 +1,4 @@
 def function(L):
-	def addition():
+	def add(a,b):
 		return a+b
-	return (addition(*L))
+	return (add(*L))

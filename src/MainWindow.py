@@ -40,8 +40,11 @@ class MainWindow(QMainWindow):
         inst.setSource(QUrl("file:src/res/lesson1.html"))
 
         # Previous lesson button
+        def go_to_previous_lesson():
+            output.setText("You good")
         previous_lesson_button = QPushButton("Previous lesson",self)
         previous_lesson_button.setMaximumWidth(150)
+        previous_lesson_button.clicked.connect(go_to_previous_lesson)
 
         # Layout to arrange all of it
         lay_left = QVBoxLayout()
@@ -59,7 +62,7 @@ class MainWindow(QMainWindow):
         '''code.setHtml(html_code)
         code.setTextColor(QColor(Qt.white))'''
 
-        highlight = PythonHighlighter(code)
+        PythonHighlighter(code)
 
         # The errors + congrats
 
@@ -79,12 +82,14 @@ class MainWindow(QMainWindow):
         # Function to write in fichier.py
         def submit_text(self):
             user_code, name = read_and_modify_function(code.toPlainText())
-            fichier = open("src/submitted_files/function_to_test.py", "w")
-            fichier.write('def function(L):\n\t' + user_code + '\treturn (' + name + '(*L))' )
-            fichier.close()
+            with open("src/submitted_files/function_to_test.py", "w") as fichier:
+                fichier.write('def function(L):\n\t' + user_code + '\treturn (' + name + '(*L))' )
+                
+            
             b, msg  = check_for_errors([3,4])
             next_lesson_button.setEnabled(b)
             output.setText(msg)
+            print(3)
 
 
         # Button to submit text -> fichier.py
