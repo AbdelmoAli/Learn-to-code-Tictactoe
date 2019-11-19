@@ -25,5 +25,3 @@ def check_for_errors(L):
     except:
         msg= "Error of other type" 
     return boolean, msg
-
-check_for_errors([1,1,1])
