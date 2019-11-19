@@ -12,7 +12,8 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
         self.setWindowTitle("Learn Python by coding a game - Tic Tac Toe")
-        
+        self.level = 1; self.level_max = 2
+
 
         ## SLOTS
         def show_popup(string):
@@ -28,6 +29,27 @@ class MainWindow(QMainWindow):
             dialog.exec()
             game.reset()
 
+        def load_level():
+            inst.setSource(QUrl("file:src/res/lesson%d.html" % self.level))
+
+        def go_to_next_lesson():
+            self.level = max(self.level_max, self.level + 1)
+            load_level()
+
+        def go_to_previous_lesson():
+            self.level = min(1, self.level - 1)
+            load_level()
+
+        def submit_text(self):
+            user_code, name = read_and_modify_function(code.toPlainText())
+
+            with open("src/submitted_files/function_to_test.py", "w") as fichier:
+                fichier.write('def function(L):\n\t' + user_code + '\treturn (' + name + '(*L))' )
+                
+            b, msg  = check_for_errors([3,4])
+            next_lesson_button.setEnabled(b)
+            output.setText(msg)
+
         ## LEFT LAYOUT
         # The game
         game = TicTacToeGUI()
@@ -40,8 +62,6 @@ class MainWindow(QMainWindow):
         inst.setSource(QUrl("file:src/res/lesson1.html"))
 
         # Previous lesson button
-        def go_to_previous_lesson():
-            output.setText("You good")
         previous_lesson_button = QPushButton("Previous lesson",self)
         previous_lesson_button.setMaximumWidth(150)
         previous_lesson_button.clicked.connect(go_to_previous_lesson)
@@ -58,44 +78,25 @@ class MainWindow(QMainWindow):
         # The text field to insert the code
         code = QTextEdit()
         code.setTabStopDistance(23)
-
-        '''code.setHtml(html_code)
-        code.setTextColor(QColor(Qt.white))'''
-
+        # code.setHtml(html_code)
+        # code.setTextColor(QColor(Qt.white))
         PythonHighlighter(code)
 
         # The errors + congrats
-
         output = QTextBrowser()
         output.setStyleSheet("background-color: rgb(200, 200, 200);")
 
         # Next lesson button
-        def go_to_next_lesson():
-            inst.setSource(QUrl("file:src/res/lesson2.html"))
-            
-        
         next_lesson_button = QPushButton("Next lesson",self)
         next_lesson_button.setEnabled(False)
         next_lesson_button.setMaximumWidth(150)
         next_lesson_button.clicked.connect(go_to_next_lesson)
 
-        # Function to write in fichier.py
-        def submit_text(self):
-            user_code, name = read_and_modify_function(code.toPlainText())
-            with open("src/submitted_files/function_to_test.py", "w") as fichier:
-                fichier.write('def function(L):\n\t' + user_code + '\treturn (' + name + '(*L))' )
-            
-            b, msg  = check_for_errors([3,4])
-            next_lesson_button.setEnabled(b)
-            output.setText(msg)
 
-
-        # Button to submit text -> fichier.py
+        # Submit text button
         submit_button = QPushButton("Submit code",self)
         submit_button.clicked.connect(submit_text)
         submit_button.setMaximumWidth(150)
-
-        
 
         # Layout to arrange all of it
         lay_right = QVBoxLayout()
@@ -110,10 +111,8 @@ class MainWindow(QMainWindow):
 
         ## GLOBAL LAYOUT
         lay_global = QHBoxLayout()
-        
         lay_global.addLayout(lay_left)
         lay_global.addLayout(lay_right)
-
         widget = QWidget()
         widget.setLayout(lay_global)
         self.setCentralWidget(widget)
