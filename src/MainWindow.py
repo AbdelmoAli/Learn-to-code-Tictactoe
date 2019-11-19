@@ -4,7 +4,7 @@ from PyQt5.QtCore import Qt, QPoint, QUrl
 
 from src.TicTacToeGUI import TicTacToeGUI
 from src.syntax import *
-from src.modify_function import modify_function
+from src.modify_function import read_and_modify_function
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -26,12 +26,6 @@ class MainWindow(QMainWindow):
             dialog.exec()
             game.reset()
 
-        def submit_text(self):
-            fichier = open("src/submitted_files/file.py", "w")
-            fichier.write(code.toPlainText())
-            fichier.close()
-
-
         ## LEFT LAYOUT
         # The game
         game = TicTacToeGUI()
@@ -40,7 +34,7 @@ class MainWindow(QMainWindow):
         # The lesson + instructions
         inst = QTextBrowser()
         inst.setStyleSheet("background-color: rgb(240, 240, 240); border: none;")
-        inst.setSource(QUrl("file:src/res/lesson1.htm"))
+        inst.setSource(QUrl("file:src/res/lesson1.html"))
 
         # Layout to arrange all of it
         lay_left = QVBoxLayout()
@@ -52,22 +46,17 @@ class MainWindow(QMainWindow):
         ## RIGHT LAYOUT
         # The text field to insert the code
         code = QTextEdit()
-<<<<<<< HEAD
         #code.setHtml(html_code)
         #code.setTextColor(QColor(Qt.white))
         highlight = PythonHighlighter(code)
 
         # Function to write in fichier.py
         def submit_text(self):
+            user_code, name=read_and_modify_function(code.toPlainText())
             fichier = open("src/submitted_files/file.py", "w")
-            fichier.write('def function()\n\t' + str(code.toPlainText()) + '\n\t\treturn ' + modify_function() + '(*L)' )
+            fichier.write('def function():\n' + user_code + '\treturn ' + name + '(*L)' )
             fichier.close()
 
-=======
-        code.setTextColor(QColor(Qt.white))
-        highlight = PythonHighlighter(code)
-
->>>>>>> f28edab2905d07f66897af908832711ede8c9be4
         # Button to submit text -> fichier.py
         submit_button = QPushButton("Submit code",self)
         submit_button.clicked.connect(submit_text)
