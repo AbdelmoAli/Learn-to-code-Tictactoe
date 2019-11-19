@@ -6,6 +6,8 @@ from src.TicTacToeGUI import TicTacToeGUI
 from src.syntax import *
 from src.modify_function import read_and_modify_function
 
+from src.test import check_for_errors
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
@@ -33,6 +35,7 @@ class MainWindow(QMainWindow):
 
         # The lesson + instructions
         inst = QTextBrowser()
+        inst.adjustSize()
         inst.setStyleSheet("background-color: rgb(240, 240, 240); border: none;")
         inst.setSource(QUrl("file:src/res/lesson1.html"))
 
@@ -58,8 +61,12 @@ class MainWindow(QMainWindow):
         # The errors + congrats
 
         output = QTextBrowser()
-        output.setStyleSheet("background-color: rgb(240, 240, 240); border: none;")
+        output.setStyleSheet("background-color: rgb(200, 200, 200);")
 
+        # Next lesson button
+        next_lesson_button = QPushButton("Next lesson",self)
+        next_lesson_button.setEnabled(False)
+        next_lesson_button.setMaximumWidth(150)
 
         # Function to write in fichier.py
         def submit_text(self):
@@ -67,16 +74,17 @@ class MainWindow(QMainWindow):
             fichier = open("src/submitted_files/file.py", "w")
             fichier.write('def function():\n' + user_code + '\treturn ' + name + '(*L)' )
             fichier.close()
+            b, msg  = check_for_errors([1,1,1])
+            next_lesson_button.setEnabled(b)
+            output.setText(msg)
+
 
         # Button to submit text -> fichier.py
         submit_button = QPushButton("Submit code",self)
         submit_button.clicked.connect(submit_text)
         submit_button.setMaximumWidth(150)
 
-        # Next lesson button
-        next_lesson_button = QPushButton("Next lesson",self)
-        next_lesson_button.setEnabled(False)
-        next_lesson_button.setMaximumWidth(150)
+        
 
         # Layout to arrange all of it
         lay_right = QVBoxLayout()

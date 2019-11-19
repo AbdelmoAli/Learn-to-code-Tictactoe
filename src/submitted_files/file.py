@@ -1,4 +1,4 @@
 def function():
-	def something(a,b):
-		return a+b
+	def something():
+		return None
 	return (*L)
