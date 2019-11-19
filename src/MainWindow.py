@@ -84,12 +84,10 @@ class MainWindow(QMainWindow):
             user_code, name = read_and_modify_function(code.toPlainText())
             with open("src/submitted_files/function_to_test.py", "w") as fichier:
                 fichier.write('def function(L):\n\t' + user_code + '\treturn (' + name + '(*L))' )
-                
             
             b, msg  = check_for_errors([3,4])
             next_lesson_button.setEnabled(b)
             output.setText(msg)
-            print(3)
 
 
         # Button to submit text -> fichier.py
