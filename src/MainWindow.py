@@ -41,8 +41,8 @@ class MainWindow(QMainWindow):
 
         # Previous lesson button
         previous_lesson_button = QPushButton("Previous lesson",self)
-        
         previous_lesson_button.setMaximumWidth(150)
+
         # Layout to arrange all of it
         lay_left = QVBoxLayout()
         lay_left.addWidget(game)
@@ -54,8 +54,11 @@ class MainWindow(QMainWindow):
         ## RIGHT LAYOUT
         # The text field to insert the code
         code = QTextEdit()
-        #code.setHtml(html_code)
-        #code.setTextColor(QColor(Qt.white))
+        code.setTabStopDistance(23)
+
+        '''code.setHtml(html_code)
+        code.setTextColor(QColor(Qt.white))'''
+
         highlight = PythonHighlighter(code)
 
         # The errors + congrats
