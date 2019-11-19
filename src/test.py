@@ -25,7 +25,7 @@ def check_for_errors(L):
     except TypeError:
         msg = "You are applying some function or operator to a type it's not supposed to support."
     except :
-        msg= "Error of other type
+        msg= "Error of other type"
     return boolean, msg
 
 
