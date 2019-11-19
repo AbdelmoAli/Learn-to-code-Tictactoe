@@ -73,11 +73,11 @@ class MainWindow(QMainWindow):
 
         # Function to write in fichier.py
         def submit_text(self):
-            user_code, name=read_and_modify_function(code.toPlainText())
-            fichier = open("src/submitted_files/file.py", "w")
-            fichier.write('def function():\n' + user_code + '\treturn ' + name + '(*L)' )
+            user_code, name = read_and_modify_function(code.toPlainText())
+            fichier = open("src/submitted_files/function_to_test.py", "w")
+            fichier.write('def function(L):\n\t' + user_code + '\treturn (' + name + '(*L))' )
             fichier.close()
-            b, msg  = check_for_errors([1,1,1])
+            b, msg  = check_for_errors([3,4])
             next_lesson_button.setEnabled(b)
             output.setText(msg)
 
