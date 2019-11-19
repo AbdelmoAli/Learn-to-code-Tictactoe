@@ -38,10 +38,6 @@ class TicTacToeCLI():
     def is_align(self, row):
         return row == ['X'] * 3 or row == ['O']
 
-    def mark_case(self, x, y, mark):
-        self.grid[x][y] = mark
-        self.possible_pos.remove((x, y))
-
     def get_rows(self):
         rows = [self.grid[i] for i in range(3)]
         rows += [[self.grid[j][i] for j in range(3)] for i in range(3)]

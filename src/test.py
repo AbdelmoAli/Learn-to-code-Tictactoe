@@ -24,8 +24,13 @@ def check_for_errors(L):
         msg = "Some operation is taking too much memory. We invite you to check the loops (to avoid endless loop)."
     except TypeError:
         msg = "You are applying some function or operator to a type it's not supposed to support."
+<<<<<<< HEAD
     #except :
      #   msg= "Error of other type"
+=======
+    except :
+        msg= "Error of other type"
+>>>>>>> c67fa74dfbf5de12541025d2a0d8395440507301
     return boolean, msg
 
 print(check_for_errors([3,4]))
