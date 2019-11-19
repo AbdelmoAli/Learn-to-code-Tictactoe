@@ -38,13 +38,14 @@ class MainWindow(QMainWindow):
 
         # Previous lesson button
         previous_lesson_button = QPushButton("Previous lesson",self)
-
+        
+        previous_lesson_button.setMaximumWidth(150)
         # Layout to arrange all of it
         lay_left = QVBoxLayout()
         lay_left.addWidget(game)
         lay_left.setAlignment(game, Qt.AlignHCenter)
         lay_left.addWidget(inst, Qt.AlignHCenter)
-        lay_left.addWidget(previous_lesson_button, Qt.AlignLeft)
+        lay_left.addWidget(previous_lesson_button)
 
 
         ## RIGHT LAYOUT
@@ -70,17 +71,22 @@ class MainWindow(QMainWindow):
         # Button to submit text -> fichier.py
         submit_button = QPushButton("Submit code",self)
         submit_button.clicked.connect(submit_text)
+        submit_button.setMaximumWidth(150)
 
         # Next lesson button
         next_lesson_button = QPushButton("Next lesson",self)
+        next_lesson_button.setEnabled(False)
+        next_lesson_button.setMaximumWidth(150)
 
         # Layout to arrange all of it
         lay_right = QVBoxLayout()
         lay_right = QVBoxLayout()
         lay_right.addWidget(code)
-        lay_right.addWidget(submit_button)
+        lay_right.addWidget(submit_button, Qt.AlignRight)
         lay_right.addWidget(output)
-        lay_right.addWidget(next_lesson_button, Qt.AlignRight)
+        lay_right.addWidget(next_lesson_button)
+        lay_right.setAlignment(submit_button, Qt.AlignRight)
+        lay_right.setAlignment(next_lesson_button, Qt.AlignRight)
 
 
         ## GLOBAL LAYOUT
