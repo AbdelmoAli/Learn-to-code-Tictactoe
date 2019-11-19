@@ -67,9 +67,14 @@ class MainWindow(QMainWindow):
         output.setStyleSheet("background-color: rgb(200, 200, 200);")
 
         # Next lesson button
+        def go_to_next_lesson():
+            inst.setSource(QUrl("file:src/res/lesson2.html"))
+            
+        
         next_lesson_button = QPushButton("Next lesson",self)
         next_lesson_button.setEnabled(False)
         next_lesson_button.setMaximumWidth(150)
+        next_lesson_button.clicked.connect(go_to_next_lesson)
 
         # Function to write in fichier.py
         def submit_text(self):
