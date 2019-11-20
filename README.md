@@ -8,15 +8,15 @@ TODO : Description
 ## Table of Contents
 
 * [Authors](#authors)
-* [Contibuting](#contibuting
+* [Contibuting](#contibuting)
 * [License](#license)
 
 
 ## Authors: 
 - [Abdelmotalib Ali](https://github.com/AbdelmoAli)
-- [Briand Paul](
+- [Briand Paul]()
 - [Lemzah Yassine](https://github.com/ylemzah)
-- [Vauboin Paul] 
+- [Vauboin Paul]()
 
 ### Supervised by: 
 [Pascual Romain](https://github.com/romainpascual)
