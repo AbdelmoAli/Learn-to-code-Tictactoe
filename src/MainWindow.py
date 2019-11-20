@@ -13,9 +13,10 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__()
         self.setWindowTitle("Learn Python by coding a game - Tic Tac Toe")
         self.level = 1; self.level_max = 1; self.nbr_level = 11
-        
+        self.submitted_functions = {1:'', 2:'', 3:'', 4:'', 5:'', 6:'', 7:'', 8:'', 9:'', 10:'', 11:''}
 
         ## SLOTS
+
         def show_popup(string):
             dialog = QMessageBox()
             if string in ['O','X', "???"] :
@@ -31,19 +32,19 @@ class MainWindow(QMainWindow):
 
         def load_level():
             inst.setSource(QUrl("file:src/res/lesson/%d.html" % self.level))
-            code.setText('')
-            if self.level < self.level_max : next_lesson_button.setEnabled(True) # "or True"  FOR DEBUGING PURPOSE
-            else : next_lesson_button.setEnabled(False)
-
+            #code.setText('')
+            next_lesson_button.setEnabled(self.level < self.level_max)
+            code.setText(self.submitted_functions[self.level])
+            
+            #code.setSource(QUrl("file:src/res/submitted_functions/func%d" % self.level))
             game.change_level(self.level)
+            output.clear()
 
             # Manage levels in test -- TODO
 
         def go_to_next_lesson():
             self.level = min(self.nbr_level, self.level + 1)
             self.level_max = max(self.level, self.level_max)
-            next_lesson_button.setEnabled(self.level<self.level_max)
-            output.clear()
             load_level()
 
         def go_to_previous_lesson():
@@ -53,13 +54,15 @@ class MainWindow(QMainWindow):
         def submit_text():
             user_code, name = read_and_modify_function(code.toPlainText())
 
-            with open("src/submitted_files/function_to_test.py", "w") as fichier:
+            with open("src/function_to_test/function_to_test.py", "w") as fichier:
                 fichier.write('def function(L):\n\t' + user_code + '\treturn (' + name + '(*L))' )
                 
-            b, msg  = check_for_errors(str(self.level))
+            b, msg  = check_for_errors(self.level)
             if b and self.level == self.level_max:
                 self.level_max +=1
                 next_lesson_button.setEnabled(b)
+                self.submitted_functions[self.level] = user_code
+                
             output.setText(msg)
 
         ## LEFT LAYOUT
