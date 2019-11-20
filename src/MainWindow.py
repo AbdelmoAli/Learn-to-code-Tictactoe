@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import *
-from PyQt5.QtGui import QPainter, QColor, QIcon
+from PyQt5.QtGui import QPainter, QColor, QIcon, QFont
 from PyQt5.QtCore import Qt, QPoint, QUrl
 
 from src.TicTacToeGUI import TicTacToeGUI
@@ -98,6 +98,7 @@ class MainWindow(QMainWindow):
 
         # Reset button
         reset_button = QPushButton("Reset", self)
+        reset_button.setFixedWidth(150)
         reset_button.clicked.connect(game.reset)
 
         # The lesson + instructions
@@ -107,38 +108,47 @@ class MainWindow(QMainWindow):
 
         # Previous lesson button
         previous_lesson_button = QPushButton("Previous lesson",self)
-        previous_lesson_button.setMaximumWidth(150)
+        previous_lesson_button.setFixedWidth(150)
         previous_lesson_button.clicked.connect(go_to_previous_lesson)
 
         # Layout to arrange all of it
         lay_left = QVBoxLayout()
         lay_left.addWidget(game); lay_left.setAlignment(game, Qt.AlignHCenter)
-        lay_left.addWidget(reset_button)
+        lay_left.addWidget(reset_button); lay_left.setAlignment(reset_button, Qt.AlignHCenter)
         lay_left.addWidget(inst)
         lay_left.addWidget(previous_lesson_button)
 
 
         ## RIGHT LAYOUT
         # The text field to insert the code
+        font = QFont();
+        font.setFamily("Courier");
+        font.setStyleHint(QFont.Monospace);
+        font.setFixedPitch(True);
+        font.setPointSize(10);
+
         code = QTextEdit()
-        code.setTabStopDistance(23)
+        code.setFont(font)
+        code.setTabStopDistance(32)
         code.setStyleSheet("color: rgb(255,255,255); background-color: rgb(40, 41, 35);")
         PythonHighlighter(code)
 
         # The errors + congrats
         output = QTextBrowser()
+        output.setMaximumHeight(100)
+        output.setFont(font)
         output.setStyleSheet("background-color: rgb(200, 200, 200);")
 
         # Next lesson button
         next_lesson_button = QPushButton("Next lesson",self)
         next_lesson_button.setEnabled(self.level<self.level_max)
-        next_lesson_button.setMaximumWidth(150)
+        next_lesson_button.setFixedWidth(150)
         next_lesson_button.clicked.connect(go_to_next_lesson)
 
         # Submit text button
         submit_button = QPushButton("Submit code",self)
         submit_button.clicked.connect(submit_text)
-        submit_button.setMaximumWidth(150)
+        submit_button.setFixedWidth(150)
 
         # Layout to arrange all of it
         lay_right = QVBoxLayout()
