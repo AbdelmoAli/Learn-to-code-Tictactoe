@@ -5,9 +5,16 @@ from PyQt5.QtCore import Qt, QPoint, pyqtSignal
 from src.TicTacToeCLI import TicTacToeCLI
 
 class TicTacToeGUI(QWidget):
+    """
+    This class implement the GUI for the Tic Tac Toe game
+    already implemented in TicTacToeCLI
+    """
     ended = pyqtSignal(str)
 
     def __init__(self):
+        """
+        Constructor.
+        """
         super(TicTacToeGUI, self).__init__()
         self.setFixedSize(180,180)
 
@@ -15,14 +22,24 @@ class TicTacToeGUI(QWidget):
         self.level = 1
 
     def reset(self):
+        """
+        Trigger reset of TicTacToeCLI.
+        """
         self.cli.reset()
 
     def change_level(self, level):
+        """
+        Manage the current level.
+        Reset the grid and update the display.
+        """
         self.level = level
         self.reset()
         self.update()
 
     def paintGrid(self, painter):
+        """
+        Paint the grid.
+        """
         painter.setPen(QColor(Qt.black))
         painter.drawLine(0,60,180,60)
         painter.drawLine(0,120,180,120)
@@ -30,6 +47,9 @@ class TicTacToeGUI(QWidget):
         painter.drawLine(120,0,120,180)
 
     def paintPoints(self,painter):
+        """
+        Paint circles and crosses inside the grid. 
+        """
         for i in range(3):
             for j in range(3):
                 if not self.cli.is_empty(i,j):
@@ -45,6 +65,9 @@ class TicTacToeGUI(QWidget):
                                             QPoint(40 + 60*i, 20 + 60*j))
 
     def mousePressEvent(self, event):
+        """
+        Add a mark to a grid when the user click.
+        """
         self.clic_pos = event.pos()
         i, j = self.clic_pos.x() // 60, self.clic_pos.y() // 60
         if i < 3 and j < 3: self.cli.add_mark(i,j)
@@ -56,6 +79,9 @@ class TicTacToeGUI(QWidget):
             self.ended.emit(' ')
 
     def paintEvent(self, event):
+        """
+        Manage the graphical interface.
+        """
         painter = QPainter(self)
         if self.level > 1 : self.paintGrid(painter)
         if self.level > 4 : self.paintPoints(painter)

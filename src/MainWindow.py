@@ -9,7 +9,18 @@ from src.modify_function import read_and_modify_function
 from src.test import check_for_errors
 
 class MainWindow(QMainWindow):
+    """
+    A window wrapper to manage the interaction between all the widgets.
+        game : the GUI of the game;
+        inst : the widget where are displayed lesson and instructions;
+        code : the widget where the user writes code;
+        output : the widget where are displayed the errors.
+    """
+
     def __init__(self):
+        """
+        Constructor.
+        """
         super(MainWindow, self).__init__()
         self.setWindowTitle("Learn Python by coding a game - Tic Tac Toe")
         self.level = 1; self.level_max = 1; self.nbr_level = 11
@@ -18,6 +29,9 @@ class MainWindow(QMainWindow):
         ## SLOTS
 
         def show_popup(string):
+            """
+            Show popup at the end of the Tic Tac Toe game. 
+            """
             dialog = QMessageBox()
             if string in ['O','X', "???"] :
                 dialog.setWindowTitle("Victory")
@@ -31,23 +45,33 @@ class MainWindow(QMainWindow):
             game.reset()
 
         def load_level():
+            """
+            Load the level (i.e. lesson and user code) and update UI. 
+            """
             inst.setSource(QUrl("file:src/res/lesson/%d.html" % self.level))
             next_lesson_button.setEnabled(self.level < self.level_max)
             code.setText(self.submitted_functions[self.level])
             game.change_level(self.level + 1 if self.level < self.level_max else 0)
             output.clear()
 
-            # Manage levels in test -- TODO
-
         def go_to_next_lesson():
+            """
+            Slot to go to the next lesson.
+            """
             self.level = min(self.nbr_level, self.level + 1)
             load_level()
 
         def go_to_previous_lesson():
+            """
+            Slot to go to the previous lesson.
+            """
             self.level = max(1, self.level - 1)
             load_level()
 
         def submit_text():
+            """
+            Slot to submit code and to test it. 
+            """
             user_code, name = read_and_modify_function(code.toPlainText())
 
             with open("src/function_to_test/function_to_test.py", "w") as fichier:

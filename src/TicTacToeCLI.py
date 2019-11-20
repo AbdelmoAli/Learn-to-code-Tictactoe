@@ -1,6 +1,7 @@
 class TicTacToeCLI():
     """
-    TODO : documentation de la classe.
+    This class implement the Tic Tac Toe game.
+    There is only a command line interface (CLI).
     """
     
     def empty_grid(self):
@@ -60,15 +61,15 @@ class TicTacToeCLI():
     def add_mark(self, i, j):
         """
         Mark a grid cell if not empty (return False otherwise)
-        TODO : add an exception ?
         """
         if not self.is_empty(i,j): return False
         self.grid[i][j] = self.mark
         self.switch_mark()
+        return True
 
     def get_rows(self):
         """
-        Generate all rows (lists of size 3) that of the grid
+        Generate all rows (lists of size 3) of the grid
         """
         rows = [self.grid[i] for i in range(3)]
         rows += [[self.grid[j][i] for j in range(3)] for i in range(3)]
