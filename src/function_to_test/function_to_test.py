@@ -1,3 +1,7 @@
 def function(L):
-		dzefzef
-	return ((*L))
+	def grid():
+		erhrthrnt
+				return []
+		
+	
+	return (grid(*L))
