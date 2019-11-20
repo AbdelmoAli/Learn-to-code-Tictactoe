@@ -46,7 +46,7 @@ class TicTacToeCLI():
         """
         Return a True if the (i,j) cell is empty.
         """
-        return value(i,j) == ' '
+        return self.value(i,j) == ' '
 
     def is_full(self):
         """
