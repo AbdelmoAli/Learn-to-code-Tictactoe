@@ -1,7 +1,3 @@
 def function(L):
-	def grid():
-		erhrthrnt
-				return []
-		
-	
-	return (grid(*L))
+		'r'rr'r
+	return ((*L))
