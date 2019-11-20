@@ -60,7 +60,7 @@ class MainWindow(QMainWindow):
                 next_lesson_button.setEnabled(no_errors)
                 self.submitted_functions[self.level] = user_code
                 load_level()
-                
+
             output.setText(msg)
 
         ## LEFT LAYOUT
@@ -94,8 +94,7 @@ class MainWindow(QMainWindow):
         # The text field to insert the code
         code = QTextEdit()
         code.setTabStopDistance(23)
-        # code.setHtml(html_code)
-        # code.setTextColor(QColor(Qt.white))
+        code.setStyleSheet("color: rgb(255,255,255); background-color: rgb(40, 41, 35);")
         PythonHighlighter(code)
 
         # The errors + congrats
