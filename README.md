@@ -19,11 +19,11 @@ TODO : Description
 - Vauboin Paul 
 
 ### Supervised by: 
-    Pascual Romain
+[Pascual Romain](https://github.com/romainpascual)
     
 ## Contributing
 
-> [Please follow these steps to contribute](CONTRIBUTING.md).
+[Please follow these steps to contribute](CONTRIBUTING.md).
 
 ## License
 This project is licensed under the [MIT License](LICENSE.md).
