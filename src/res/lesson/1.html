@@ -17,43 +17,116 @@
 
 If you read this, it's because you wish to learn python by coding a game: TicTacToe!
 
-In this lesson, I'll teach you the first things you need to know about the language Python, in order to write your first function:
+In this lesson, I'll teach you the first things you need to know about the Python language, in order to write your first function:
 
 - the first variables: Integer, String, List
 - how to write a function
 
-<h2>Let's Begin!</h2>Let's Begin!
+<h2>Let's Begin!
 
 The Python language uses different data types, that uses different operations. The first type is the Integer type. If you're not 
-bad in mathematics,
-you should know about the common operations you can do with integers: addition (+), substraction (-), multiplication (*), and 
-division (-).
-Well, in Python you can use those different operations with the integers. But you can do a lot more! If you want to know more, 
-check a documentation
-on the internet. For now, that is more than enough to continue our lesson.
+bad in mathematics,you should know about the common operations you can do with integers: addition (+), substraction (-), multiplication (*),
+and division (-).
 
-The second data type that we'll talk about is the String type. More than simple, a String is juste a succession of characters 
-that forms
-a word, a sentence, a paragraph or a whole book. Exemples: &quot;a&quot;, &quot;b&quot;, &quot;word&quot;, &quot;this is a 
-sentence&quot; are strings. As you notice, strings are 
-always written between &quot;&quot;. That's how Python understand you're writing a string.
+Well, in Python you can use those different operations with the integers. But you can do a lot more! If you want to learn more about it, 
+check a documentation on the internet. For now, that is more than enough to continue our lesson.
 
-The last data type you'll need for the first function is the List type. A list is a set of datas
+The second data type that we'll talk about is the String type. A String is juste a succession of characters that forms a word,
+a sentence, a paragraph or a whole book. Exemples: &quot;a&quot;, &quot;b&quot;, &quot;word&quot;, &quot;this is a sentence&quot;
+are strings. As you notice, strings are always written between &quot;&quot;, which enables Python to understand that you wrote a 
+string
+
+The last data type you'll need to know about is the List type. A list is a collection of objects that is orderer and changeable.
+For instance, [1] is a list containing the integer 1, [1,2,3] is a list containing the first three integers. You can also have an empty 
+list [].
+
 
 <h2>How to declare a variable? </h2>
-my_variable = value
-You just enter this line of code in your shell, and our_variable will now contain the type and value of "value" 
-(Integer, String, List..)
+A variable allows you to store a certain data under a name of your choice. Here's an example:
+
+my_variable = 1
+
+Here you stored the value 1 under the name my_variable. What you do in general respect the following structure:
+
+name_of_variable = value.
+
+Value can take of all sorts of data types : integer, string, list and so forth.
+
 
 <h2>What about functions?</h2>
-A function takes parameters (that can be Integers, Strings, Lists,..), does some actions and return a new value. 
-The syntax of a function is as following:
+A function takes a bunch of parameters (that can be Integers, Strings, Lists,..), does some actions and return a new value.
+To write a function means to define what sort of parameters it takes ( their number and their type), then define the actions
+that are applied to them and then return the results of the actions.
 
 def function(parameter1, parameter2):
     ---some actions..
     .. 
     ..---
     return output1, output2..
+
+For instance, here's how you would define a function that takes two integers and returns their sum:
+
+def sum(a,b):
+    c=a+b
+    return c
+
+Here we took the parameters a and b and we did the operation a+b which we stored the result in c (second line) then we returned c.
+Lastly, you need to know that you can define functions that does not need to take a parameter. For instance here's a function that
+returns the number 1 no matter what :
+
+def return_one():
+    return 1
+
+<h2>Indentation</H2>
+When you write python code, you need to organize it in a way such that python can understand. For now, you'll need to know that whatever
+you use &quot;:&quot; statement you need to write in the next line and start your code with leaving some space. The spaece you leave is up
+to you but you need to keep leaving the same amount of space after each  &quot;:&quot; statement. For instance:
+
+def function():
+    a=3
+    if a==3:
+        a=4
+    return 4
+
+You can notice that after the first &quot;:&quot; statement i left 4 empty spaces and i respect that amount each time i wrote that statement
+once i'm done with a &quot;:&quot; statement and it's content, i go back to write with the same amount of space i used in the previous 
+&quot;:&quot; line. For instance, the following code is wrong:
+
+def function():
+ a=3
+ if a==3:
+ a==4
+ return 4
+
+ 
+
+Actually, the first function you will need to write to build the TicTacToe does not take any parameter ! But first you'll need to learn
+about one last thing...
+
+<h2> For loops</h2>
+
+For loop is the way python allows you to repeat a certain block of operations as many time as you want. Bear in mind that in python
+we count strating from 0. So here's how you can repeat the operation (print(1)) 10 times:
+
+for i in range(10):
+    print(1)
+
+you'll get the result : 1111111111. You need to know that range(10) means that you can access to the numbers between 0 and 9. In general
+to repeat a certain operation n times you just write:
+
+for i in range(n):
+    operation
+
+For instance here's a very easy way to fill a list when you want to fill it with the result of a fucntion. Suppose you have a function
+'operation' that takes an integers and operates on it. If you want to create a list that contains the results of applying this function 
+to each of the integers between 0 and 10 you will just write:
+
+name_of_list = [operation(i) for i in range(11)]
+
+So let's get down to your first function ! We need to first create a grid in which you will play the tictactoe game. The basic idea
+is to represent a row with a list of three strings. Each string can be either &quot;X&quot;, &quot;O&quot; or &quot;' '&quot;
+the last string represent an empty square. So the grid will be a list containing three empty rows. You now need to write a function
+called create_grid that take no parameters and returns an empty grid. You can either use a for loop or write your grid manually. 
 
 </pre>
     </body>
