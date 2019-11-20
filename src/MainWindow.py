@@ -59,7 +59,7 @@ class MainWindow(QMainWindow):
                     self.level_max +=1
                 next_lesson_button.setEnabled(no_errors)
                 self.submitted_functions[self.level] = user_code
-                load_level()
+                load_level() 
                 
             output.setText(msg)
 
