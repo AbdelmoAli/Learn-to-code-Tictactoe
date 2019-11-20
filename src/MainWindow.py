@@ -34,7 +34,7 @@ class MainWindow(QMainWindow):
             inst.setSource(QUrl("file:src/res/lesson/%d.html" % self.level))
             next_lesson_button.setEnabled(self.level < self.level_max)
             code.setText(self.submitted_functions[self.level])
-            game.change_level(self.level + 1 if self.level < self.level_max else 0)
+            game.change_level(self.level + 1 if self.level < self.level_max else self.level)
             output.clear()
 
             # Manage levels in test -- TODO
@@ -49,10 +49,15 @@ class MainWindow(QMainWindow):
 
         def submit_text():
             user_code, name = read_and_modify_function(code.toPlainText())
+            ancient_code = ''
+            for i in range(1,self.level):
+                ancient_code += '\t'
+                ancient_code += self.submitted_functions[i]
+                ancient_code += '\n'
 
             with open("src/function_to_test/function_to_test.py", "w") as fichier:
-                fichier.write('def function(L):\n\t' + user_code + '\treturn (' + name + '(*L))' )
-                
+                fichier.write('def function(L):\n' + ancient_code + '\t' + user_code + '\treturn (' + name + '(*L))' )
+            
             no_errors, msg  = check_for_errors(str(self.level))
             if no_errors:
                 if self.level == self.level_max:
