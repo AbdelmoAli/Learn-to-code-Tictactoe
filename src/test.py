@@ -1,13 +1,16 @@
 import importlib
 
-def check_for_errors(L):
+test_entries = {'1': []}
+
+def check_for_errors(key):
     boolean = False
     msg=""
     try:
         #mymodule = importlib.import_module(".function_to_test", package = "submitted_files") #désigne le fichier où est stocké la 'réponse' temporaire
         import src.submitted_files.function_to_test
         importlib.reload(src.submitted_files.function_to_test)
-        src.submitted_files.function_to_test.function(L)
+        entry = test_entries[key]
+        src.submitted_files.function_to_test.function(entry)
         msg="This function did not raise any error."
         boolean = True
     except NameError:
@@ -27,3 +30,7 @@ def check_for_errors(L):
     except :
         msg= "Error of other type"
     return boolean, msg
+
+
+
+

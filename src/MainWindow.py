@@ -13,7 +13,7 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__()
         self.setWindowTitle("Learn Python by coding a game - Tic Tac Toe")
         self.level = 1; self.level_max = 1; self.nbr_level = 11
-
+        
 
         ## SLOTS
         def show_popup(string):
@@ -32,7 +32,7 @@ class MainWindow(QMainWindow):
         def load_level():
             inst.setSource(QUrl("file:src/res/lesson/%d.html" % self.level))
             code.setText('')
-            if self.level < self.level_max or True: next_lesson_button.setEnabled(True) # "or True"  FOR DEBUGING PURPOSE
+            if self.level < self.level_max : next_lesson_button.setEnabled(True) # "or True"  FOR DEBUGING PURPOSE
             else : next_lesson_button.setEnabled(False)
             
             game.change_level(self.level)
@@ -42,6 +42,7 @@ class MainWindow(QMainWindow):
         def go_to_next_lesson():
             self.level = min(self.nbr_level, self.level + 1)
             self.level_max = max(self.level, self.level_max)
+            next_lesson_button.setEnabled(self.level<self.level_max)
             load_level()
 
         def go_to_previous_lesson():
@@ -54,8 +55,10 @@ class MainWindow(QMainWindow):
             with open("src/submitted_files/function_to_test.py", "w") as fichier:
                 fichier.write('def function(L):\n\t' + user_code + '\treturn (' + name + '(*L))' )
                 
-            b, msg  = check_for_errors([3,4])
-            next_lesson_button.setEnabled(b)
+            b, msg  = check_for_errors(str(self.level))
+            if b and self.level == self.level_max:
+                self.level_max +=1
+                next_lesson_button.setEnabled(b)
             output.setText(msg)
 
         ## LEFT LAYOUT
@@ -99,7 +102,7 @@ class MainWindow(QMainWindow):
 
         # Next lesson button
         next_lesson_button = QPushButton("Next lesson",self)
-        next_lesson_button.setEnabled(False)
+        next_lesson_button.setEnabled(self.level<self.level_max)
         next_lesson_button.setMaximumWidth(150)
         next_lesson_button.clicked.connect(go_to_next_lesson)
 
