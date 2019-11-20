@@ -29,4 +29,4 @@ TODO : Description
 This project is licensed under the [GNU License](LICENSE.md).
 
 ## Trello
-[Trello du groupe] (https://trello.com/invite/b/e19eXmZW/69b00a78eba6ba6d068734606e91ae63/learn-python-by-coding-tictactoe)
+[Trello du groupe](https://trello.com/invite/b/e19eXmZW/69b00a78eba6ba6d068734606e91ae63/learn-python-by-coding-tictactoe)
