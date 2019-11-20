@@ -65,7 +65,6 @@ class PythonHighlighter (QSyntaxHighlighter):
     braces = [
         '\{', '\}', '\(', '\)', '\[', '\]',
     ]
-    
     def __init__(self, document):
         QSyntaxHighlighter.__init__(self, document)
 
