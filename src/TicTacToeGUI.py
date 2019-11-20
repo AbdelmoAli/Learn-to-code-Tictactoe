@@ -12,9 +12,15 @@ class TicTacToeGUI(QWidget):
         self.setFixedSize(180,180)
 
         self.cli = TicTacToeCLI()
+        self.level = 1
 
     def reset(self):
         self.cli.reset()
+
+    def change_level(self, level):
+        self.level = level
+        self.reset()
+        self.update()
 
     def paintGrid(self, painter):
         painter.setPen(QColor(Qt.black))
@@ -27,7 +33,7 @@ class TicTacToeGUI(QWidget):
         for i in range(3):
             for j in range(3):
                 if not self.cli.is_empty(i,j):
-                    if self.cli.value(i,j) == 'O':
+                    if self.cli.value(i,j) == 'O' or self.level <= 5:
                         painter.setPen(QColor(Qt.blue))
                         painter.drawEllipse(    QPoint(30 + 60*i, 30 + 60*j),\
                                                 10, 10)
@@ -44,12 +50,12 @@ class TicTacToeGUI(QWidget):
         if i < 3 and j < 3: self.cli.add_mark(i,j)
         self.update()
 
-        if self.cli.is_winner():
-            self.ended.emit(self.cli.get_winner())
-        elif self.cli.is_full():
+        if self.cli.is_winner() and self.level > 8:
+            self.ended.emit(self.cli.get_winner() if self.level > 9 else '???')
+        elif self.cli.is_full() and self.level > 10:
             self.ended.emit(' ')
 
     def paintEvent(self, event):
         painter = QPainter(self)
-        self.paintGrid(painter)
-        self.paintPoints(painter)
+        if self.level > 1 : self.paintGrid(painter)
+        if self.level > 4 : self.paintPoints(painter)

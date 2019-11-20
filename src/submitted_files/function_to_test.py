@@ -1,4 +1,3 @@
 def function(L):
-	def somme(a,b):
-		return a+c
-	return (somme(*L))
+	def aaa(b,c): pass
+	return (aaa(*L))

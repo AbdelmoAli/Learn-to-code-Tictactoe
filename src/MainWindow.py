@@ -12,13 +12,13 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
         self.setWindowTitle("Learn Python by coding a game - Tic Tac Toe")
-        self.level = 1; self.level_max = 2
+        self.level = 1; self.level_max = 1; self.nbr_level = 11
 
 
         ## SLOTS
         def show_popup(string):
             dialog = QMessageBox()
-            if string in ['O','X'] :
+            if string in ['O','X', "???"] :
                 dialog.setWindowTitle("Victory")
                 dialog.setText("The game is over !\nCongrates player %s : you win !" % string)
             else:
@@ -30,17 +30,25 @@ class MainWindow(QMainWindow):
             game.reset()
 
         def load_level():
-            inst.setSource(QUrl("file:src/res/lesson%d.html" % self.level))
+            inst.setSource(QUrl("file:src/res/lesson/%d.html" % self.level))
+            code.setText('')
+            if self.level < self.level_max or True: next_lesson_button.setEnabled(True) # "or True"  FOR DEBUGING PURPOSE
+            else : next_lesson_button.setEnabled(False)
+            
+            game.change_level(self.level)
+
+            # Manage levels in test -- TODO
 
         def go_to_next_lesson():
-            self.level = max(self.level_max, self.level + 1)
+            self.level = min(self.nbr_level, self.level + 1)
+            self.level_max = max(self.level, self.level_max)
             load_level()
 
         def go_to_previous_lesson():
-            self.level = min(1, self.level - 1)
+            self.level = max(1, self.level - 1)
             load_level()
 
-        def submit_text(self):
+        def submit_text():
             user_code, name = read_and_modify_function(code.toPlainText())
 
             with open("src/submitted_files/function_to_test.py", "w") as fichier:
@@ -55,11 +63,14 @@ class MainWindow(QMainWindow):
         game = TicTacToeGUI()
         game.ended.connect(show_popup)
 
+        # Reset button
+        reset_button = QPushButton("Reset", self)
+        reset_button.clicked.connect(game.reset)
+
         # The lesson + instructions
         inst = QTextBrowser()
         inst.adjustSize()
         inst.setStyleSheet("background-color: rgb(240, 240, 240); border: none;")
-        inst.setSource(QUrl("file:src/res/lesson1.html"))
 
         # Previous lesson button
         previous_lesson_button = QPushButton("Previous lesson",self)
@@ -68,9 +79,9 @@ class MainWindow(QMainWindow):
 
         # Layout to arrange all of it
         lay_left = QVBoxLayout()
-        lay_left.addWidget(game)
-        lay_left.setAlignment(game, Qt.AlignHCenter)
-        lay_left.addWidget(inst, Qt.AlignHCenter)
+        lay_left.addWidget(game); lay_left.setAlignment(game, Qt.AlignHCenter)
+        lay_left.addWidget(reset_button)
+        lay_left.addWidget(inst)
         lay_left.addWidget(previous_lesson_button)
 
 
@@ -91,7 +102,6 @@ class MainWindow(QMainWindow):
         next_lesson_button.setEnabled(False)
         next_lesson_button.setMaximumWidth(150)
         next_lesson_button.clicked.connect(go_to_next_lesson)
-
 
         # Submit text button
         submit_button = QPushButton("Submit code",self)
@@ -115,4 +125,7 @@ class MainWindow(QMainWindow):
         lay_global.addLayout(lay_right)
         widget = QWidget()
         widget.setLayout(lay_global)
+
+        load_level()
         self.setCentralWidget(widget)
+        
