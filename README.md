@@ -13,10 +13,10 @@ TODO : Description
 
 
 ## Authors: 
-- Abdelmotalib Ali 
-- Briand Paul
-- Lemzah Yassine
-- Vauboin Paul 
+- [Abdelmotalib Ali](https://github.com/AbdelmoAli)
+- [Briand Paul](
+- [Lemzah Yassine](https://github.com/ylemzah)
+- [Vauboin Paul] 
 
 ### Supervised by: 
 [Pascual Romain](https://github.com/romainpascual)
