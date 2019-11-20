@@ -14,9 +14,9 @@ TODO : Description
 
 ## Authors: 
 - [Abdelmotalib Ali](https://github.com/AbdelmoAli)
-- [Briand Paul]()
+- [Briand Paul](https://github.com/baguettte)
 - [Lemzah Yassine](https://github.com/ylemzah)
-- [Vauboin Paul]()
+- [Vauboin Paul](https://github.com/PVaub)
 
 ### Supervised by: 
 [Pascual Romain](https://github.com/romainpascual)
@@ -26,4 +26,4 @@ TODO : Description
 [Please follow these steps to contribute](CONTRIBUTING.md).
 
 ## License
-This project is licensed under the [MIT License](LICENSE.md).
+This project is licensed under the [GNU License](LICENSE.md).
