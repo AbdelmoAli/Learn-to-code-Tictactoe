@@ -34,7 +34,7 @@ class MainWindow(QMainWindow):
             inst.setSource(QUrl("file:src/res/lesson/%d.html" % self.level))
             next_lesson_button.setEnabled(self.level < self.level_max)
             code.setText(self.submitted_functions[self.level])
-            game.change_level(self.level)
+            game.change_level(self.level + 1 if self.level < self.level_max else 0)
             output.clear()
 
             # Manage levels in test -- TODO
@@ -59,6 +59,7 @@ class MainWindow(QMainWindow):
                     self.level_max +=1
                 next_lesson_button.setEnabled(no_errors)
                 self.submitted_functions[self.level] = user_code
+                load_level()
                 
             output.setText(msg)
 
@@ -132,4 +133,4 @@ class MainWindow(QMainWindow):
 
         load_level()
         self.setCentralWidget(widget)
-        
+
