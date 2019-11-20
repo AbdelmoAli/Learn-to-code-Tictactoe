@@ -32,11 +32,8 @@ class MainWindow(QMainWindow):
 
         def load_level():
             inst.setSource(QUrl("file:src/res/lesson/%d.html" % self.level))
-            #code.setText('')
             next_lesson_button.setEnabled(self.level < self.level_max)
             code.setText(self.submitted_functions[self.level])
-            
-            #code.setSource(QUrl("file:src/res/submitted_functions/func%d" % self.level))
             game.change_level(self.level)
             output.clear()
 
@@ -44,7 +41,6 @@ class MainWindow(QMainWindow):
 
         def go_to_next_lesson():
             self.level = min(self.nbr_level, self.level + 1)
-            self.level_max = max(self.level, self.level_max)
             load_level()
 
         def go_to_previous_lesson():
@@ -57,10 +53,11 @@ class MainWindow(QMainWindow):
             with open("src/function_to_test/function_to_test.py", "w") as fichier:
                 fichier.write('def function(L):\n\t' + user_code + '\treturn (' + name + '(*L))' )
                 
-            b, msg  = check_for_errors(self.level)
-            if b and self.level == self.level_max:
-                self.level_max +=1
-                next_lesson_button.setEnabled(b)
+            no_errors, msg  = check_for_errors(self.level)
+            if no_errors:
+                if self.level == self.level_max:
+                    self.level_max +=1
+                next_lesson_button.setEnabled(no_errors)
                 self.submitted_functions[self.level] = user_code
                 
             output.setText(msg)
