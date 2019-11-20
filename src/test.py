@@ -7,10 +7,10 @@ def check_for_errors(key):
     msg=""
     try:
         #mymodule = importlib.import_module(".function_to_test", package = "submitted_files") #désigne le fichier où est stocké la 'réponse' temporaire
-        import src.submitted_files.function_to_test
-        importlib.reload(src.submitted_files.function_to_test)
+        import src.function_to_test.function_to_test
+        importlib.reload(src.function_to_test.function_to_test)
         entry = test_entries[key]
-        src.submitted_files.function_to_test.function(entry)
+        src.function_to_test.function_to_test.function(entry)
         msg="This function did not raise any error."
         boolean = True
     except NameError:

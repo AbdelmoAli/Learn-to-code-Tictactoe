@@ -1,4 +1,4 @@
 def function(L):
 	def grid():
-		return []
+		returnn[]
 	return (grid(*L))
