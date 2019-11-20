@@ -34,7 +34,7 @@ class MainWindow(QMainWindow):
             code.setText('')
             if self.level < self.level_max or True: next_lesson_button.setEnabled(True) # "or True"  FOR DEBUGING PURPOSE
             else : next_lesson_button.setEnabled(False)
-            
+
             game.change_level(self.level)
 
             # Manage levels in test -- TODO
@@ -128,4 +128,4 @@ class MainWindow(QMainWindow):
 
         load_level()
         self.setCentralWidget(widget)
-        
+
