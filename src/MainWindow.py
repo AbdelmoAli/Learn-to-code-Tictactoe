@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import *
-from PyQt5.QtGui import QPainter, QColor, QIcon
+from PyQt5.QtGui import QPainter, QColor, QIcon, QFont
 from PyQt5.QtCore import Qt, QPoint, QUrl
 
 from src.TicTacToeGUI import TicTacToeGUI
@@ -120,8 +120,15 @@ class MainWindow(QMainWindow):
 
         ## RIGHT LAYOUT
         # The text field to insert the code
+        font = QFont();
+        font.setFamily("Courier");
+        font.setStyleHint(QFont.Monospace);
+        font.setFixedPitch(True);
+        font.setPointSize(10);
+
         code = QTextEdit()
-        code.setTabStopDistance(23)
+        code.setFont(font)
+        code.setTabStopDistance(32)
         code.setStyleSheet("color: rgb(255,255,255); background-color: rgb(40, 41, 35);")
         PythonHighlighter(code)
 

@@ -73,7 +73,7 @@ class TicTacToeGUI(QWidget):
         if i < 3 and j < 3: self.cli.add_mark(i,j)
         self.update()
 
-        if self.cli.is_winner() and self.level > 8:
+        if self.cli.has_winner() and self.level > 8:
             self.ended.emit(self.cli.get_winner() if self.level > 9 else '???')
         elif self.cli.is_full() and self.level > 10:
             self.ended.emit(' ')
