@@ -1,4 +1,7 @@
 def function(L):
-	def foo():
-		return print(3)
-	return (foo(*L))
+	def grid():
+		erhrthrnt
+				return []
+		
+	
+	return (grid(*L))
