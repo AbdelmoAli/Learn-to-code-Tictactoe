@@ -1,4 +1,4 @@
 def function(L):
-		dzfzef:
+	def grid():
 		return []
-	return ((*L))
+	return (grid(*L))

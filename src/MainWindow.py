@@ -43,6 +43,7 @@ class MainWindow(QMainWindow):
             self.level = min(self.nbr_level, self.level + 1)
             self.level_max = max(self.level, self.level_max)
             next_lesson_button.setEnabled(self.level<self.level_max)
+            output.clear()
             load_level()
 
         def go_to_previous_lesson():
