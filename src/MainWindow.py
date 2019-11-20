@@ -53,7 +53,7 @@ class MainWindow(QMainWindow):
             with open("src/function_to_test/function_to_test.py", "w") as fichier:
                 fichier.write('def function(L):\n\t' + user_code + '\treturn (' + name + '(*L))' )
                 
-            no_errors, msg  = check_for_errors(self.level)
+            no_errors, msg  = check_for_errors(str(self.level))
             if no_errors:
                 if self.level == self.level_max:
                     self.level_max +=1
