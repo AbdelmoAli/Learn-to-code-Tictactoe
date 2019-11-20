@@ -57,7 +57,7 @@ class MainWindow(QMainWindow):
             with open("src/function_to_test/function_to_test.py", "w") as fichier:
                 fichier.write('def function(L):\n\t' + user_code + '\treturn (' + name + '(*L))' )
                 
-            b, msg  = check_for_errors(str(self.level))
+            b, msg  = check_for_errors(self.level)
             if b and self.level == self.level_max:
                 self.level_max +=1
                 next_lesson_button.setEnabled(b)

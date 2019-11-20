@@ -1,6 +1,6 @@
 import importlib
 
-test_entries = {'1': []}
+test_entries = {1: []}
 
 def check_for_errors(key):
     boolean = False
