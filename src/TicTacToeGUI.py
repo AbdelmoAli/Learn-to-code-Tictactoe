@@ -26,6 +26,7 @@ class TicTacToeGUI(QWidget):
         Trigger reset of TicTacToeCLI.
         """
         self.cli.reset()
+        self.update()
 
     def change_level(self, level):
         """

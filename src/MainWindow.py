@@ -26,7 +26,7 @@ class MainWindow(QMainWindow):
         """
         super(MainWindow, self).__init__()
         self.setWindowTitle("Learn Python by coding a game - Tic Tac Toe")
-        self.level = 1; self.level_max = 1; self.nbr_level = 11
+        self.level = 1; self.level_max = 11; self.nbr_level = 11
         self.submitted_functions = {1:'', 2:'', 3:'', 4:'', 5:'', 6:'', 7:'', 8:'', 9:'', 10:'', 11:''}
 
         stylesheet_path='src/res/darkorange.stylesheet'
