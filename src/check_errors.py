@@ -1,6 +1,5 @@
 import importlib
 
-
 output_of_7_entry=[ [ ['O','',''], ['','X',''], ['O','','O'], ['O','','O'], ['','X',''], ['','','O'], ['O','X','O'], ['','X','O'] ] ]
 
 test_entries = {'1': [[]],
@@ -30,7 +29,6 @@ def check_for_errors(key):
     boolean = False
     msg=""
     try:
-        #mymodule = importlib.import_module(".function_to_test", package = "submitted_files") #désigne le fichier où est stocké la 'réponse' temporaire
         import src.function_to_test.function_to_test
         importlib.reload(src.function_to_test.function_to_test)
         msg="This function did not raise any error."
