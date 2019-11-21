@@ -1,6 +1,44 @@
 <html>
     <head></head>
     <body>
-        <h1> Lesson 7 </h1>
+        <h1> Lesson 7: Boss level - tricky use of indexation</h1>
+    
+    This is the boss level. We want you to perform a crucial task : write a function call get extract every row and every column and the two diagonals
+    from the grid. Each one will be a list and the answer will be a list of these lists. So let's go through this step by step.
+    First, you will need to learn how to concatenate two lists. Here's how you would add [1,2] and [3,4] to get 
+    a list new_list equal to [1,2,3,4]:
+
+    new_list = [1,2]+[3,4]
+
+    In general, you will write :
+
+    new_list = list_1 + list_2
+
+    You can also keep the variable list_1 and grow it by adding the elements of list_2:
+
+     list_1+=list_2
+
+    list_1 now contains the original elements followed by the elements of list_2.
+
+    So you'll first create a variable called rows  containing an empty list and then get all the rows from the 
+    grid using &quot;+=&quot; you'll write something like this:
+
+    for i in range(3):
+        for j in range(3):
+        rows+=[...]
+
+    Now you want to get the columns. You will basically write the same code with a slight permutation of index, i'll 
+    let you guess where ;P
+
+    Now you want to extract the diagonal. Use an other for loop and remember that an element of the diagonale is indexed
+    by the identitical integers (i,i)...
+
+    Now you want to extract the anti-diagonal, i.e squares of index (0,2), (1,1), (2,0). Try a for loop that does it
+    with right indexing. Hint : try to figure the relation between the two cordinate !
+    
+    
+
+
+
     </body>
 </html>

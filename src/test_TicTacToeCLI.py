@@ -1,5 +1,4 @@
 from TicTacToeCLI import *
-from pytest import *
 
 game = TicTacToeCLI()
 

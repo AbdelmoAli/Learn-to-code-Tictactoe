@@ -87,7 +87,7 @@ class MainWindow(QMainWindow):
             """
             user_code, name = get_name_of_function(code.toPlainText())
             ancient_code = ''
-            for i in range(1,self.level):
+            for i in range(1, self.level):
                 ancient_code += '\t'
                 ancient_code += self.submitted_functions[i].replace('\n','\n\t')
                 ancient_code += '\n'
