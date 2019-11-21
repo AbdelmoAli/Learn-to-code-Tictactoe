@@ -29,6 +29,7 @@ class MainWindow(QMainWindow):
         stylesheet_path='src/res/darkorange.stylesheet'
         with open(stylesheet_path,"r") as fh:
             self.setStyleSheet(fh.read())
+        self.setWindowIcon(QIcon("src/res/app.ico"))
 
         ## SLOTS
 
