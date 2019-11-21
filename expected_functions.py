@@ -13,11 +13,9 @@ def add_mark(grid,i,j,mark):
 				grid[i][j]=mark
 			return b,grid
 
-def switch_mark(mark): 	#pour l'instant
-	if mark=='X':
-		mark='O'
-	else:
-		mark='X'
+def switch_mark(mark):
+	if mark == 'X': return 'O'
+	else: return 'X'
 
 def is_align(row):
 	if row==['X' for i in range(3)] or row==['O' for i in range(3)]:
