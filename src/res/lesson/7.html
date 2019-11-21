@@ -1,44 +1,51 @@
 <html>
-    <head></head>
-    <body>
+    <head>
+        <style>
+            h1, h2{color:#b50505}
+            @page { size: 8.5in 11in; margin: 0.1in }
+            p {  background: transparent; color:black ; font-family: "Courier", monospace; font-size: 5pt}
+            div {font-size: 10pt; margin : 1px 3px 3px 1px}
+            block{ background-color:#f0f0f0 ;}
+        </style>
+    </head>
+    <body style="color: #282923; background-color:white">
         <h1> Lesson 7: Boss level - tricky use of indexation</h1>
     
-    This is the boss level. We want you to perform a crucial task : write a function call get extract every row and every column and the two diagonals
+    <p>This is the boss level. We want you to perform a crucial task : write a function call get extract every row and every column and the two diagonals
     from the grid. Each one will be a list and the answer will be a list of these lists. So let's go through this step by step.
     First, you will need to learn how to concatenate two lists. Here's how you would add [1,2] and [3,4] to get 
-    a list new_list equal to [1,2,3,4]:
+    a list <block>new_list</block> equal to [1,2,3,4]:</p>
 
-    new_list = [1,2]+[3,4]
+    <!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">new_list <span style="color: #666666">=</span> [<span style="color: #40a070">1</span>,<span style="color: #40a070">2</span>]<span style="color: #666666">+</span>[<span style="color: #40a070">3</span>,<span style="color: #40a070">4</span>]
+</pre></div>
 
-    In general, you will write :
+    <p>In general, you will write :</p>
 
-    new_list = list_1 + list_2
+    <!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">new_list <span style="color: #666666">=</span> list_1 <span style="color: #666666">+</span> list_2
+</pre></div>
 
-    You can also keep the variable list_1 and grow it by adding the elements of list_2:
+    <p>You can also keep the variable <block>list_1</block> and grow it by adding the elements of <block>list_2</block>:</p>
 
-     list_1+=list_2
+    <!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">list_1<span style="color: #666666">+=</span>list_2</pre></div>
 
-    list_1 now contains the original elements followed by the elements of list_2.
-
-    So you'll first create a variable called rows  containing an empty list and then get all the rows from the 
-    grid using &quot;+=&quot; you'll write something like this:
-
-    for i in range(3):
-        for j in range(3):
-        rows+=[...]
-
-    Now you want to get the columns. You will basically write the same code with a slight permutation of index, i'll 
-    let you guess where ;P
-
-    Now you want to extract the diagonal. Use an other for loop and remember that an element of the diagonale is indexed
-    by the identitical integers (i,i)...
-
-    Now you want to extract the anti-diagonal, i.e squares of index (0,2), (1,1), (2,0). Try a for loop that does it
-    with right indexing. Hint : try to figure the relation between the two cordinate !
+    <p><block>list_1</block> now contains the original elements followed by the elements of <block>list_2</block>.</p>
     
+    <p>So you'll first create a variable called rows  containing an empty list and then get all the rows from the 
+    grid using <block>+=</block>>; you'll write something like this:</p>
+
+    <!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007020; font-weight: bold">for</span> i <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #40a070">3</span>):
+        <span style="color: #007020; font-weight: bold">for</span> j <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #40a070">3</span>):
+        rows<span style="color: #666666">+=</span>[<span style="color: #666666">...</span>]
+</pre></div>
+
+    <p>Now you want to get the columns. You will basically write the same code with a slight permutation of index, i'll 
+    let you guess where ;P</p>
+
+    <p>Now you want to extract the diagonal. Use an other for loop and remember that an element of the diagonale is indexed
+    by the identitical integers (i,i)...</p>
+
+    <p>Now you want to extract the anti-diagonal, i.e squares of index (0,2), (1,1), (2,0). Try a for loop that does it
+    with right indexing. </br>Hint : try to figure the relation between the two cordinate !</p>
     
-
-
-
     </body>
 </html>
