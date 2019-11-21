@@ -4,7 +4,7 @@ from PyQt5.QtCore import Qt, QPoint, QUrl
 
 from src.TicTacToeGUI import TicTacToeGUI
 from src.syntax import *
-from src.modify_function import read_and_modify_function
+from src.get_name_of_function import get_name_of_function
 
 from os.path import exists
 from os import remove
@@ -81,7 +81,7 @@ class MainWindow(QMainWindow):
             """
             Slot to submit code and to test it. 
             """
-            user_code, name = read_and_modify_function(code.toPlainText())
+            user_code, name = get_name_of_function(code.toPlainText())
             ancient_code = ''
             for i in range(1,self.level):
                 ancient_code += '\t'
