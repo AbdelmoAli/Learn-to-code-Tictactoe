@@ -25,10 +25,10 @@ def is_align(row):
 
 def get_rows(grid):
 	rows = grid[:]
-	rows.append( [[grid[j][i] for j in range(3)] for i in range(3)])    
+	rows += [[grid[j][i] for j in range(3)] for i in range(3)]    
 	rows.append( [grid[i][i] for i in range(3)] )
 	rows.append( [grid[i][2-i] for i in range(3)] )
-
+	return rows
 
 def has_winner(grid):
 	if ['X','X','X'] in get_rows(grid) or ['O','O','O'] in get_rows(grid):
