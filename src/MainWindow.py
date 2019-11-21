@@ -32,7 +32,7 @@ class MainWindow(QMainWindow):
         stylesheet_path='src/res/darkorange.stylesheet'
         with open(stylesheet_path,"r") as fh:
             self.setStyleSheet(fh.read())
-        self.setWindowIcon(QIcon("src/res/app.ico"))
+            self.setWindowIcon(QIcon("src/res/app.ico"))
 
         ## SLOTS
 
@@ -41,6 +41,10 @@ class MainWindow(QMainWindow):
             Show popup at the end of the Tic Tac Toe game. 
             """
             dialog = QMessageBox()
+            popup_stylesheet_path='src/res/popup.stylesheet'
+            with open(popup_stylesheet_path,"r") as fh:
+                dialog.setStyleSheet(fh.read())
+                dialog.setWindowIcon(QIcon("src/res/app.ico"))
             if string in ['O','X', "???"] :
                 dialog.setWindowTitle("Victory")
                 dialog.setText("The game is over !\nCongrates player %s : you win !" % string)
