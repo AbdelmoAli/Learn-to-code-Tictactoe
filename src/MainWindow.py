@@ -157,6 +157,10 @@ class MainWindow(QMainWindow):
         next_lesson_button.setEnabled(self.level<self.level_max)
         next_lesson_button.setFixedWidth(150)
         next_lesson_button.clicked.connect(go_to_next_lesson)
+        next_lesson_button.setStyleSheet("""
+        QPushButton:enabled{background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0.1 #4e7a35, stop: 0.5 #292929, stop: 0.9 #282828, stop: 1 #252525) }
+        QPushButton:pressed{background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0.1  #4c4c4c, stop: 0.5 #292929, stop: 0.9 #282828, stop: 1 #252525)}
+        """)
 
         # Submit text button
         submit_button = QPushButton("Submit code",self)
