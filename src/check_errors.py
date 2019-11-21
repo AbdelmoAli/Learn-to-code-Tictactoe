@@ -37,8 +37,12 @@ def check_for_errors(key):
             entries = test_entries[key]
             expected_outputs = test_example_output[key]
             boolean = True
+            def sort(L):
+                for i in range(len(L)):
+                    L[i]=sorted(L[i])
+                return sorted(L)
             for (i,entry) in enumerate(entries):
-                if not sorted(src.function_to_test.function_to_test.function(entry)) == sorted(expected_outputs[i]):
+                if not sort(src.function_to_test.function_to_test.function(entry)) == sort(expected_outputs[i]):
                     boolean = False
                     break
         else:
