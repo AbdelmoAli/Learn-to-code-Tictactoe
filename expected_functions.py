@@ -8,10 +8,10 @@ def is_empty(grid,i,j):
 	return value(grid,i,j)==""
 
 def add_mark(grid,i,j,mark):
-			b=is_empty(grid,i,j)
-			if b:
-				grid[i][j]=mark
-			return b,grid
+	b=is_empty(grid,i,j)
+	if b:
+		grid[i][j]=mark
+	return b,grid
 
 def switch_mark(mark):
 	if mark == 'X': return 'O'
@@ -25,9 +25,9 @@ def is_align(row):
 
 def get_rows(grid):
 	rows = grid[:]
-    rows.append( [[grid[j][i] for j in range(3)] for i in range(3)]) )     
+	rows.append( [[grid[j][i] for j in range(3)] for i in range(3)])    
 	rows.append( [grid[i][i] for i in range(3)] )
-    rows.append( [grid[i][2-i] for i in range(3)] )
+	rows.append( [grid[i][2-i] for i in range(3)] )
 
 
 def has_winner(grid):

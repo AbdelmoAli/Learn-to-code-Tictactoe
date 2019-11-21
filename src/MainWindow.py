@@ -96,7 +96,7 @@ class MainWindow(QMainWindow):
                 if self.level == self.level_max:
                     self.level_max +=1
                 next_lesson_button.setEnabled(no_errors)
-                self.submitted_functions[self.level] = user_code
+                self.submitted_functions[self.level] = code.toPlainText()
                 load_level()
             output.setText(msg)
 
