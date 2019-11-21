@@ -41,7 +41,7 @@ class TicTacToeGUI(QWidget):
         """
         Paint the grid.
         """
-        painter.setPen(QColor(Qt.black))
+        painter.setPen(QColor(Qt.white))
         painter.drawLine(0,60,180,60)
         painter.drawLine(0,120,180,120)
         painter.drawLine(60,0,60,180)
@@ -55,15 +55,31 @@ class TicTacToeGUI(QWidget):
             for j in range(3):
                 if not self.cli.is_empty(i,j):
                     if self.cli.value(i,j) == 'O' or self.level <= 5:
-                        painter.setPen(QColor(Qt.blue))
+                        painter.setPen(QColor(Qt.cyan))
                         painter.drawEllipse(    QPoint(30 + 60*i, 30 + 60*j),\
                                                 10, 10)
+                        painter.drawEllipse(    QPoint(30 + 60*i, 30 + 60*j),\
+                                                9, 9)
+                        painter.drawEllipse(    QPoint(30 + 60*i, 30 + 60*j),\
+                                                10, 9)
+                        painter.drawEllipse(    QPoint(30 + 60*i, 30 + 60*j),\
+                                                9, 10)
+                        
                     else:
-                        painter.setPen(QColor(Qt.red))
+                        painter.setPen(QColor(Qt.magenta))
                         painter.drawLine(   QPoint(20 + 60*i, 20 + 60*j),\
                                             QPoint(40 + 60*i, 40 + 60*j))
+                        painter.drawLine(   QPoint(20 + 60*i+1, 20 + 60*j),\
+                                            QPoint(40 + 60*i+1, 40 + 60*j))
+                        painter.drawLine(   QPoint(20 + 60*i-1, 20 + 60*j),\
+                                            QPoint(40 + 60*i-1, 40 + 60*j))
+
                         painter.drawLine(   QPoint(20 + 60*i, 40 + 60*j),\
                                             QPoint(40 + 60*i, 20 + 60*j))
+                        painter.drawLine(   QPoint(20 + 60*i+1, 40 + 60*j),\
+                                            QPoint(40 + 60*i+1, 20 + 60*j))
+                        painter.drawLine(   QPoint(20 + 60*i-1, 40 + 60*j),\
+                                            QPoint(40 + 60*i-1, 20 + 60*j))
 
     def mousePressEvent(self, event):
         """
