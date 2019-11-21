@@ -26,6 +26,10 @@ class MainWindow(QMainWindow):
         self.level = 1; self.level_max = 1; self.nbr_level = 11
         self.submitted_functions = {1:'', 2:'', 3:'', 4:'', 5:'', 6:'', 7:'', 8:'', 9:'', 10:'', 11:''}
 
+        stylesheet_path='src/res/darkorange.stylesheet'
+        with open(stylesheet_path,"r") as fh:
+            self.setStyleSheet(fh.read())
+
         ## SLOTS
 
         def show_popup(string):
@@ -37,8 +41,8 @@ class MainWindow(QMainWindow):
                 dialog.setWindowTitle("Victory")
                 dialog.setText("The game is over !\nCongrates player %s : you win !" % string)
             else:
-                dialog.setWindowTitle("Drawn")
-                dialog.setText("The game is over !\nIt's a drawn, try again !")
+                dialog.setWindowTitle("Draw")
+                dialog.setText("The game is over !\nIt's a draw, try again !")
 
             dialog.setModal(True)
             dialog.exec()
@@ -125,7 +129,7 @@ class MainWindow(QMainWindow):
         font.setFamily("Courier");
         font.setStyleHint(QFont.Monospace);
         font.setFixedPitch(True);
-        font.setPointSize(10);
+        font.setPointSize(13);
 
         code = QTextEdit()
         code.setFont(font)
@@ -137,7 +141,7 @@ class MainWindow(QMainWindow):
         output = QTextBrowser()
         output.setMaximumHeight(100)
         output.setFont(font)
-        output.setStyleSheet("background-color: rgb(200, 200, 200);")
+        output.setStyleSheet("color: #b05656; background-color: rgb(40, 41, 35);")
 
         # Next lesson button
         next_lesson_button = QPushButton("Next lesson",self)

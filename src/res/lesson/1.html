@@ -1,133 +1,163 @@
 <html>
-    <head></head>
-    <body>
-        <h1> Lesson 1: Introduction </h1>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title></title>
-	<meta name="generator" content="LibreOffice 6.3.3.2 (Linux)"/>
-	<meta name="created" content="00:00:00"/>
-	<meta name="changed" content="00:00:00"/>
-	<style type="text/css">
-		@page { size: 8.5in 11in; margin: 0.79in }
-		p { margin-bottom: 0.1in; line-height: 115%; background: transparent }
-		pre { font-family: "Liberation Mono", monospace; font-size: 10pt; background: transparent }
-	</style>
-</head>
-<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><pre>Hello and welcome!
+    <head>
+        <style>
+        h1, h2{color:#b50505}
+        @page { size: 8.5in 11in; margin: 0.1in }
+		p {  background: transparent; color:black ; font-family: "Courier", monospace; font-size: 5pt}
+        div {font-size: 10pt; margin : 1px 3px 3px 1px}
+        </style>
+    </head>
 
+<body style="color: #282923; background-color:grey">
+
+<h1>Lesson 1: Introduction </h1>
+
+<p>
+Hello and welcome!
+<br /> <br /> 
 If you read this, it's because you wish to learn python by coding a game: TicTacToe!
-
+<br /> <br /> 
 In this lesson, I'll teach you the first things you need to know about the Python language, in order to write your first function:
-
-- the first variables: Integer, String, List
+<br /> <br /> 
+- the first variables: Integer, String, List<br /> 
 - how to write a function
+</p>
 
-<h2>Let's Begin!
 
+<h2>Let's Begin!</h2>
+<p>
 The Python language uses different data types, that uses different operations. The first type is the Integer type. If you're not 
 bad in mathematics,you should know about the common operations you can do with integers: addition (+), substraction (-), multiplication (*),
 and division (-).
-
+<br /> <br /> 
 Well, in Python you can use those different operations with the integers. But you can do a lot more! If you want to learn more about it, 
 check a documentation on the internet. For now, that is more than enough to continue our lesson.
-
+<br /> <br /> 
 The second data type that we'll talk about is the String type. A String is juste a succession of characters that forms a word,
 a sentence, a paragraph or a whole book. Exemples: &quot;a&quot;, &quot;b&quot;, &quot;word&quot;, &quot;this is a sentence&quot;
 are strings. As you notice, strings are always written between &quot;&quot;, which enables Python to understand that you wrote a 
 string
-
+<br /> <br /> 
 The last data type you'll need to know about is the List type. A list is a collection of objects that is orderer and changeable.
 For instance, [1] is a list containing the integer 1, [1,2,3] is a list containing the first three integers. You can also have an empty 
 list [].
+</p>
 
 
 <h2>How to declare a variable? </h2>
+<p>
 A variable allows you to store a certain data under a name of your choice. Here's an example:
+ </p>
 
-my_variable = 1
+<!-- HTML generated using hilite.me --><div style="background: #202020; overflow:auto;width:auto;border:transparent;border-width:.0em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 1; line-height: 135%"><span style="color: #d0d0d0">my_variable</span> <span style="color: #d0d0d0">=</span> <span style="color: #3677a9">1</span>
+</pre></div>
 
+<p>
 Here you stored the value 1 under the name my_variable. What you do in general respect the following structure:
-
-name_of_variable = value.
-
+</p>
+<!-- HTML generated using hilite.me --><div style="background: #202020; overflow:auto;width:auto;border:transparent;border-width:.0em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #d0d0d0">name_of_variable</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">value.</span>
+</pre></div>
+<p>
 Value can take of all sorts of data types : integer, string, list and so forth.
+</p>
 
 
 <h2>What about functions?</h2>
+<p>
 A function takes a bunch of parameters (that can be Integers, Strings, Lists,..), does some actions and return a new value.
 To write a function means to define what sort of parameters it takes ( their number and their type), then define the actions
-that are applied to them and then return the results of the actions.
+that are applied to them and then return the results of the actions.</p>
 
-def function(parameter1, parameter2):
-    ---some actions..
-    .. 
-    ..---
-    return output1, output2..
+<!-- HTML generated using hilite.me --><div style="background: #202020; overflow:auto;width:auto;border:transparent;border-width:.0em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #6ab825; font-weight: bold">def</span> <span style="color: #447fcf">function</span><span style="color: #d0d0d0">(parameter1,</span> <span style="color: #d0d0d0">parameter2):</span>
+    <span style="color: #d0d0d0">---some</span> <span style="color: #d0d0d0">actions..</span>
+    <span style="color: #d0d0d0">..</span>
+    <span style="color: #d0d0d0">..</span>
+    <span style="color: #6ab825; font-weight: bold">return</span> <span style="color: #d0d0d0">output1,</span> <span style="color: #d0d0d0">output2..</span> 
+</pre></div>
 
+<p>
 For instance, here's how you would define a function that takes two integers and returns their sum:
+</p>
 
-def sum(a,b):
-    c=a+b
-    return c
+<!-- HTML generated using hilite.me --><div style="background: #202020; overflow:auto;width:auto;border:transparent;border-width:.0em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #6ab825; font-weight: bold">def</span> <span style="color: #447fcf">sum</span><span style="color: #d0d0d0">(a,b):</span>
+    <span style="color: #d0d0d0">c=a+b</span>
+    <span style="color: #6ab825; font-weight: bold">return</span> <span style="color: #d0d0d0">c</span> 
+</pre></div>
 
+<p>
 Here we took the parameters a and b and we did the operation a+b which we stored the result in c (second line) then we returned c.
 Lastly, you need to know that you can define functions that does not need to take a parameter. For instance here's a function that
 returns the number 1 no matter what :
+</p>
 
-def return_one():
-    return 1
+<!-- HTML generated using hilite.me --><div style="background: #202020; overflow:auto;width:auto;border:transparent;border-width:.0em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #6ab825; font-weight: bold">def</span> <span style="color: #447fcf">return_one</span><span style="color: #d0d0d0">():</span>
+    <span style="color: #6ab825; font-weight: bold">return</span> <span style="color: #3677a9">1</span> 
+</pre></div>
+
 
 <h2>Indentation</H2>
-When you write python code, you need to organize it in a way such that python can understand. For now, you'll need to know that whatever
+<p>When you write python code, you need to organize it in a way such that python can understand. For now, you'll need to know that whatever
 you use &quot;:&quot; statement you need to write in the next line and start your code with leaving some space. The spaece you leave is up
 to you but you need to keep leaving the same amount of space after each  &quot;:&quot; statement. For instance:
+</p>
 
-def function():
-    a=3
-    if a==3:
-        a=4
-    return 4
-
-You can notice that after the first &quot;:&quot; statement i left 4 empty spaces and i respect that amount each time i wrote that statement
+<!-- HTML generated using hilite.me --><div style="background: #202020; overflow:auto;width:auto;border:transparent;border-width:.0em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #6ab825; font-weight: bold">def</span> <span style="color: #447fcf">function</span><span style="color: #d0d0d0">():</span>
+    <span style="color: #d0d0d0">a=</span><span style="color: #3677a9">3</span>
+    <span style="color: #6ab825; font-weight: bold">if</span> <span style="color: #d0d0d0">a==</span><span style="color: #3677a9">3</span><span style="color: #d0d0d0">:</span>
+        <span style="color: #d0d0d0">a=</span><span style="color: #3677a9">4</span>
+    <span style="color: #6ab825; font-weight: bold">return</span> <span style="color: #3677a9">4</span> 
+  </pre></div>
+  
+<p>You can notice that after the first &quot;:&quot; statement i left 4 empty spaces and i respect that amount each time i wrote that statement
 once i'm done with a &quot;:&quot; statement and it's content, i go back to write with the same amount of space i used in the previous 
 &quot;:&quot; line. For instance, the following code is wrong:
+</p>
 
-def function():
- a=3
- if a==3:
- a==4
- return 4
-
+<!-- HTML generated using hilite.me --><div style="background: #202020; overflow:auto;width:auto;border:transparent;border-width:.0em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #6ab825; font-weight: bold">def</span> <span style="color: #447fcf">function</span><span style="color: #d0d0d0">():</span>
+    <span style="color: #d0d0d0">a=</span><span style="color: #3677a9">3</span>
+    <span style="color: #6ab825; font-weight: bold">if</span> <span style="color: #d0d0d0">a==</span><span style="color: #3677a9">3</span><span style="color: #d0d0d0">:</span>
+        <span style="color: #d0d0d0">a==</span><span style="color: #3677a9">4</span>
+    <span style="color: #6ab825; font-weight: bold">return</span> <span style="color: #3677a9">4</span> 
+</pre></div>
  
-
+<p>
 Actually, the first function you will need to write to build the TicTacToe does not take any parameter ! But first you'll need to learn
 about one last thing...
+</p>
 
-<h2> For loops</h2>
+<h2>For loops</h2>
 
+<p>
 For loop is the way python allows you to repeat a certain block of operations as many time as you want. Bear in mind that in python
 we count strating from 0. So here's how you can repeat the operation (print(1)) 10 times:
 
-for i in range(10):
-    print(1)
+<!-- HTML generated using hilite.me --><div style="background: #202020; overflow:auto;width:auto;border:transparent;border-width:.0em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #6ab825; font-weight: bold">for</span> <span style="color: #d0d0d0">i</span> <span style="color: #6ab825; font-weight: bold">in</span> <span style="color: #24909d">range</span><span style="color: #d0d0d0">(</span><span style="color: #3677a9">10</span><span style="color: #d0d0d0">):</span>
+    <span style="color: #6ab825; font-weight: bold">print</span><span style="color: #d0d0d0">(</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">)</span> 
+</pre></div>
 
+<p>
 you'll get the result : 1111111111. You need to know that range(10) means that you can access to the numbers between 0 and 9. In general
 to repeat a certain operation n times you just write:
+</p>
 
-for i in range(n):
-    operation
+<!-- HTML generated using hilite.me --><div style="background: #202020; overflow:auto;width:auto;border:transparent;border-width:.0em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #6ab825; font-weight: bold">for</span> <span style="color: #d0d0d0">i</span> <span style="color: #6ab825; font-weight: bold">in</span> <span style="color: #24909d">range</span><span style="color: #d0d0d0">(n):</span>
+    <span style="color: #d0d0d0">operation</span> 
+</pre></div>
 
+<p>
 For instance here's a very easy way to fill a list when you want to fill it with the result of a fucntion. Suppose you have a function
 'operation' that takes an integers and operates on it. If you want to create a list that contains the results of applying this function 
 to each of the integers between 0 and 10 you will just write:
 
-name_of_list = [operation(i) for i in range(11)]
+<!-- HTML generated using hilite.me --><div style="background: #202020; overflow:auto;width:auto;border:transparent;border-width:.0em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #d0d0d0">name_of_list</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">[operation(i)</span> <span style="color: #6ab825; font-weight: bold">for</span> <span style="color: #d0d0d0">i</span> <span style="color: #6ab825; font-weight: bold">in</span> <span style="color: #24909d">range</span><span style="color: #d0d0d0">(</span><span style="color: #3677a9">11</span><span style="color: #d0d0d0">)]</span> 
+</pre></div>
 
+<p>
 So let's get down to your first function ! We need to first create a grid in which you will play the tictactoe game. The basic idea
 is to represent a row with a list of three strings. Each string can be either &quot;X&quot;, &quot;O&quot; or &quot;' '&quot;
 the last string represent an empty square. So the grid will be a list containing three empty rows. You now need to write a function
 called create_grid that take no parameters and returns an empty grid. You can either use a for loop or write your grid manually. 
+</p>
 
-</pre>
-    </body>
+</body>
 </html>
