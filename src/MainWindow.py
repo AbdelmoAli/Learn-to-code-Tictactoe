@@ -6,7 +6,7 @@ from src.TicTacToeGUI import TicTacToeGUI
 from src.syntax import *
 from src.get_name_of_function import get_name_of_function
 
-from src.test import check_for_errors
+from src.check_errors import check_for_errors
 
 class MainWindow(QMainWindow):
     """
