@@ -6,7 +6,14 @@ from src.TicTacToeGUI import TicTacToeGUI
 from src.syntax import *
 from src.get_name_of_function import get_name_of_function
 
+<<<<<<< HEAD
 from src.check_errors import check_for_errors
+=======
+from os.path import exists
+from os import remove
+
+from src.test import check_for_errors
+>>>>>>> 8dd37a596855251c3087bad9dbcdbb67edd70e34
 
 class MainWindow(QMainWindow):
     """
@@ -176,4 +183,7 @@ class MainWindow(QMainWindow):
 
         load_level()
         self.setCentralWidget(widget)
-        
+    
+    def closeEvent(self, event):
+        path = "src/function_to_test/function_to_test.py"
+        if exists(path): remove(path)
