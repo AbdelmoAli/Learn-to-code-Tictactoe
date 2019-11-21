@@ -1,0 +1,11 @@
+QMessageBox {
+            background-color: #525252; 
+            color: white;
+            font-size: 12px;}
+QPushButton{color: white; 
+            font-size: 13px; 
+            background-color: #b50505;
+            border-radius: 4px;
+            padding: 8px; 
+            text-align: center;}
+QPushButton:hover{color: #2b5b84;}
