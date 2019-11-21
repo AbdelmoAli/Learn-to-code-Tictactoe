@@ -67,7 +67,7 @@ class MainWindow(QMainWindow):
             Slot to go to the next lesson.
             """
             self.level = min(self.nbr_level, self.level + 1)
-            print(self.level)
+            # print(self.level)
             load_level()
 
         def go_to_previous_lesson():
@@ -85,7 +85,7 @@ class MainWindow(QMainWindow):
             ancient_code = ''
             for i in range(1,self.level):
                 ancient_code += '\t'
-                ancient_code += self.submitted_functions[i]
+                ancient_code += self.submitted_functions[i].replace('\n','\n\t')
                 ancient_code += '\n'
 
             with open("src/function_to_test/function_to_test.py", "w") as fichier:
