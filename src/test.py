@@ -1,25 +1,23 @@
 import importlib
 
-example_for_X='X'
-example_for_O='O'
-output_of_7_entry=[ [['O','',''],['','X',''],['O','','O'], ['O','','O'], ['','X',''],['','','O'],['O','X','O'],['','X','O'] ] ]
+output_of_7_entry=[ [ ['O','',''], ['','X',''], ['O','','O'], ['O','','O'], ['','X',''], ['','','O'], ['O','X','O'], ['','X','O'] ] ]
 
 test_entries = {'1': [[]],
                 '2':[ [ [['O','',''],['','X',''],['','','']] , 0, 0] , [ [['O','',''],['','X',''],['','','']] , 0, 1]],
                 '3':[ [ [['O','',''], ['','X',''], ['','','O']], 0, 1], [ [['O','O',''],['','X',''],['','','O']], 0, 1] ],
                 '4':[ [ [['O','',''], ['','X',''], ['','','O']], 0, 0,'X'] , [ [['O','',''], ['','X',''], ['','','O']], 0, 1,'X'] ],
-                '5':[[example_for_X],[example_for_O]],
-                '6':[ [['X','X','X']] , [['X','O','X']] ],
-                '7':[ [['O','',''],['','X',''],['O','','O']] ],
-                '8':[ [['O','',''],['O','X',''],['O','X','O']], [['O','',''],['O','X',''],['O','0','O']] ],
-                '9':[ [['O','',''],['O','X',''],['O','0','O']] , [['O','',''],['O','X',''],['X','X','X']] ],
-                '10':[ [['O','X','O'],['X','O','O'],['O','X','O']], [['O','X','O'],['X','O','O'],['O','','O']] ]}
+                '5':[ ['X'], ['O'] ],
+                '6':[ [ ['X','X','X'] ] , [ ['X','O','X'] ] ],
+                '7':[ [ [['O','',''],['','X',''],['O','','O']] ] ],
+                '8':[ [ [['O','',''],['O','X',''],['','X','O']] ], [ [['O','',''],['O','X',''],['O','0','O']] ] ],
+                '9':[ [ [['O','',''],['O','X',''],['O','0','O']] ], [ [['O','',''],['O','X',''],['X','X','X']] ] ],
+                '10':[ [ [['O','X','O'],['X','O','O'],['O','X','O']] ], [ [['O','X','O'],['X','O','O'],['O','','O']] ] ]}
 
 test_example_output = { '1': [ [['' ,'' ,''], ['' ,'' ,''], ['' ,'' ,'']] ], 
                         '2': ['O', ''],
                         '3': [True, False],
                         '4': [ (False,[['O','',''], ['','X',''], ['','','O']]) , (True,[['O','X',''], ['','X',''], ['','','O']]) ],
-                        '5': [None],
+                        '5': ['O', 'X'],
                         '6': [True, False],
                         '7': output_of_7_entry,
                         '8': [False, True],
@@ -35,15 +33,14 @@ def check_for_errors(key):
         import src.function_to_test.function_to_test
         importlib.reload(src.function_to_test.function_to_test)
         msg="This function did not raise any error."
-        if key=='5':
-            src.function_to_test.function_to_test.function(example_for_O)
-            src.function_to_test.function_to_test.function(example_for_X)
-            if example_for_O!='X' or example_for_X!='O':
-                boolean = True
-                msg="Bon, on va te laisser passer à la suite. Mais sache que ta fonction est fausse :3"
-        elif key=='7':
+        if key=='7':
+            entries = test_entries[key]
+            expected_outputs = test_example_output[key]
             boolean = True
-            print("Paul B: You good")
+            for (i,entry) in enumerate(entries):
+                if not sorted(src.function_to_test.function_to_test.function(entry)) == sorted(expected_outputs[i]):
+                    boolean = False
+                    break
         else:
             entries = test_entries[key]
             expected_outputs = test_example_output[key]
@@ -69,10 +66,10 @@ def check_for_errors(key):
         msg = "There is a problem with the indexing."
     except MemoryError:
         msg = "Some operation is taking too much memory. We invite you to check the loops (to avoid endless loop)."
-    except TypeError:
-        msg = "You are applying some function or operator to a type it's not supposed to support."
-    except:
-        msg = "There is an error of some other type."
+    #except TypeError:
+        #msg = "You are applying some function or operator to a type it's not supposed to support."
+    #except:
+     #   msg = "There is an error of some other type."
     return boolean, msg
 
 

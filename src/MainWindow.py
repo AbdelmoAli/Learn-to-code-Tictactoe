@@ -64,6 +64,7 @@ class MainWindow(QMainWindow):
             Slot to go to the next lesson.
             """
             self.level = min(self.nbr_level, self.level + 1)
+            print(self.level)
             load_level()
 
         def go_to_previous_lesson():
