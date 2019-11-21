@@ -56,20 +56,28 @@ def check_for_errors(key):
             msg+= "\nThis function serves it's purpose. You can proceed to the next level"
     except NameError:
         msg = "You are using an undefined object."
+        boolean = False
     except IndentationError:
         msg = "There is an error in your indentation."
+        boolean = False
     except SyntaxError:
         msg = "There is a syntax error."
+        boolean = False
     except AttributeError:
         msg = "You made an invalid attribute reference or an attribute assignement failed."
+        boolean = False
     except IndexError:
         msg = "There is a problem with the indexing."
+        boolean = False
     except MemoryError:
         msg = "Some operation is taking too much memory. We invite you to check the loops (to avoid endless loop)."
+        boolean = False
     except TypeError:
         msg = "You are applying some function or operator to a type it's not supposed to support."
+        boolean = False
     except:
         msg = "There is an error of some other type."
+        boolean = False
     return boolean, msg
 
 
