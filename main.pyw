@@ -4,7 +4,7 @@ from src.MainWindow import MainWindow
 def main():
     app = QApplication([])
     mw = MainWindow()
-    mw.show()
+    mw.showMaximized()
     app.exec_()
 
 if __name__ == "__main__":

@@ -1,4 +1,10 @@
 def function(L):
 	def empty_grid():
-		return [['' for j in range(3)] for i in range(3)]
-	return (empty_grid(*L))
+		return [['']*3]*3
+
+	def new_grid():
+		return [['' for i in range(3)] for j in range(3)]
+
+	def new_grid():
+		return [['' for i in range(3)] for j in range(3)]
+	return (new_grid(*L))
