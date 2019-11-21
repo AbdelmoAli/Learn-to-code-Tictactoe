@@ -4,9 +4,12 @@ from PyQt5.QtCore import Qt, QPoint, QUrl
 
 from src.TicTacToeGUI import TicTacToeGUI
 from src.syntax import *
-from src.modify_function import read_and_modify_function
+from src.get_name_of_function import get_name_of_function
 
-from src.test import check_for_errors
+from os.path import exists
+from os import remove
+
+from src.check_errors import check_for_errors
 
 class MainWindow(QMainWindow):
     """
@@ -68,7 +71,7 @@ class MainWindow(QMainWindow):
             Slot to go to the next lesson.
             """
             self.level = min(self.nbr_level, self.level + 1)
-            print(self.level)
+            # print(self.level)
             load_level()
 
         def go_to_previous_lesson():
@@ -82,11 +85,11 @@ class MainWindow(QMainWindow):
             """
             Slot to submit code and to test it. 
             """
-            user_code, name = read_and_modify_function(code.toPlainText())
+            user_code, name = get_name_of_function(code.toPlainText())
             ancient_code = ''
             for i in range(1,self.level):
                 ancient_code += '\t'
-                ancient_code += self.submitted_functions[i]
+                ancient_code += self.submitted_functions[i].replace('\n','\n\t')
                 ancient_code += '\n'
 
             with open("src/function_to_test/function_to_test.py", "w") as fichier:
@@ -97,7 +100,7 @@ class MainWindow(QMainWindow):
                 if self.level == self.level_max:
                     self.level_max +=1
                 next_lesson_button.setEnabled(no_errors)
-                self.submitted_functions[self.level] = user_code
+                self.submitted_functions[self.level] = code.toPlainText()
                 load_level()
             output.setText(msg)
 
@@ -180,4 +183,7 @@ class MainWindow(QMainWindow):
 
         load_level()
         self.setCentralWidget(widget)
-        
+    
+    def closeEvent(self, event):
+        path = "src/function_to_test/function_to_test.py"
+        if exists(path): remove(path)
