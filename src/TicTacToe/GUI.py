@@ -2,7 +2,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QPainter, QColor
 from PyQt5.QtCore import Qt, QPoint, pyqtSignal
 
-from src.TicTacToeCLI import TicTacToeCLI
+from src.TicTacToe.CLI import TicTacToeCLI
 
 class TicTacToeGUI(QWidget):
     """

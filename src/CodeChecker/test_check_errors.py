@@ -9,12 +9,12 @@ def test_check_errors1():
 
     user_code, name = get_name_of_function(valid_function)
 
-    with open("src/function_to_test/function_to_test.py", "w") as fichier:
+    with open("tmp.py", "w") as fichier:
         fichier.write('def function(L):\n' + '\t' + user_code + '\treturn (' + name + '(*L))' )
 
     assert check_for_errors('1') == (True, "This function did not raise any error.\nThis function serves it's purpose. You can proceed to the next level")
 
-    path = "src/function_to_test/function_to_test.py"
+    path = "tmp.py"
     remove(path)
 
 def test_check_errors2():
@@ -22,10 +22,10 @@ def test_check_errors2():
 
     user_code, name = get_name_of_function(invalid_function)
 
-    with open("src/function_to_test/function_to_test.py", "w") as fichier:
+    with open("tmp.py", "w") as fichier:
         fichier.write('def function(L):\n' + '\t' + user_code + '\treturn (' + name + '(*L))' )
 
     assert check_for_errors('1') == (False, "You are applying some function or operator to a type it's not supposed to support.")
 
-    path = "src/function_to_test/function_to_test.py"
+    path = "tmp.py"
     remove(path)

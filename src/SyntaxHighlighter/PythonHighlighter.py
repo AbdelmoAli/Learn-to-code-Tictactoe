@@ -1,26 +1,7 @@
-from PyQt5.QtCore import QRegExp, Qt
-from PyQt5.QtGui import QColor, QTextCharFormat, QFont, QSyntaxHighlighter, qRgb
+from PyQt5.QtCore import QRegExp
+from PyQt5.QtGui import QSyntaxHighlighter
 
-def format(r,g,b):
-    """Return a QTextCharFormat with the given attributes.
-    """
-    _color = QColor(qRgb(r,g,b))
-    _format = QTextCharFormat()
-    _format.setForeground(_color)
-
-    return _format
-
-
-# Syntax styles that can be shared by all languages
-STYLES = {
-    'magenta': format(249,36,114),
-    'cyan': format(103,216,239),
-    'purple': format(172,128,255),
-    'yellow': format(231,219,116),
-    'grey': format(116,112,93),
-    'green': format(116,226,43),
-    'orange': format(253,150,34)
-}
+from src.SyntaxHighlighter.colors import COLORS
 
 
 class PythonHighlighter(QSyntaxHighlighter):
@@ -46,26 +27,26 @@ class PythonHighlighter(QSyntaxHighlighter):
         # Multi-line strings (expression, flag, style)
         # FIXME: The triple-quotes in these two lines will mess up the
         # syntax highlighting from this point onward
-        self.tri_single = (QRegExp("'''"), 1, STYLES['grey'])
-        self.tri_double = (QRegExp('"""'), 2, STYLES['grey'])
+        self.tri_single = (QRegExp("'''"), 1, COLORS['grey'])
+        self.tri_double = (QRegExp('"""'), 2, COLORS['grey'])
 
         rules = []
-        rules += [(r'\b%s\b' % w, 0, STYLES['magenta']) for w in PythonHighlighter.keywords]
-        rules += [(r'%s' % o, 0, STYLES['magenta']) for o in PythonHighlighter.operators]
-        rules += [(r'\b%s\b' % w, 0, STYLES['cyan']) for w in PythonHighlighter.functions]
-        rules += [(r'\b%s\b' % w, 0, STYLES['purple']) for w in PythonHighlighter.logic]
+        rules += [(r'\b%s\b' % w, 0, COLORS['magenta']) for w in PythonHighlighter.keywords]
+        rules += [(r'%s' % o, 0, COLORS['magenta']) for o in PythonHighlighter.operators]
+        rules += [(r'\b%s\b' % w, 0, COLORS['cyan']) for w in PythonHighlighter.functions]
+        rules += [(r'\b%s\b' % w, 0, COLORS['purple']) for w in PythonHighlighter.logic]
         
         rules += [
-            (r'\bself\b', 0, STYLES['orange']),                                                 # self   
-            (r'"[^"\\]*(\\.[^"\\]*)*"', 0, STYLES['yellow']),                                   # STRINGS '...'
-            (r"'[^'\\]*(\\.[^'\\]*)*'", 0, STYLES['yellow']),                                   # STRINGS "..."
-            (r'(\w+)\s*\b\(', 1, STYLES['cyan']),                                               # FUCNTIONS ...(
-            (r'\bdef\b\s*(\w+)', 1, STYLES['green']),                                           # FUCNTIONS def ...
-            (r'\bclass\b\s*(\w+)', 1, STYLES['green']),                                         # CLASS class ...
-            (r'#[^\n]*', 0, STYLES['grey']),                                                    # COMMENTS #...
-            (r'\b[+-]?[0-9]+[lL]?\b', 0, STYLES['purple']),                                     # NUMBERS
-            (r'\b[+-]?0[xX][0-9A-Fa-f]+[lL]?\b', 0, STYLES['purple']),                          # NUMBERS
-            (r'\b[+-]?[0-9]+(?:\.[0-9]+)?(?:[eE][+-]?[0-9]+)?\b', 0, STYLES['purple']),         # NUMBERS
+            (r'\bself\b', 0, COLORS['orange']),                                                 # self   
+            (r'"[^"\\]*(\\.[^"\\]*)*"', 0, COLORS['yellow']),                                   # STRINGS '...'
+            (r"'[^'\\]*(\\.[^'\\]*)*'", 0, COLORS['yellow']),                                   # STRINGS "..."
+            (r'(\w+)\s*\b\(', 1, COLORS['cyan']),                                               # FUCNTIONS ...(
+            (r'\bdef\b\s*(\w+)', 1, COLORS['green']),                                           # FUCNTIONS def ...
+            (r'\bclass\b\s*(\w+)', 1, COLORS['green']),                                         # CLASS class ...
+            (r'#[^\n]*', 0, COLORS['grey']),                                                    # COMMENTS #...
+            (r'\b[+-]?[0-9]+[lL]?\b', 0, COLORS['purple']),                                     # NUMBERS
+            (r'\b[+-]?0[xX][0-9A-Fa-f]+[lL]?\b', 0, COLORS['purple']),                          # NUMBERS
+            (r'\b[+-]?[0-9]+(?:\.[0-9]+)?(?:[eE][+-]?[0-9]+)?\b', 0, COLORS['purple']),         # NUMBERS
         ]
 
         # Build a QRegExp for each pattern

@@ -1,4 +1,4 @@
-from TicTacToeCLI import *
+from CLI import TicTacToeCLI
 
 game = TicTacToeCLI()
 

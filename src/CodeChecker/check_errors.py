@@ -29,8 +29,8 @@ def check_for_errors(key):
     boolean = False
     msg=""
     try:
-        import src.function_to_test.function_to_test
-        importlib.reload(src.function_to_test.function_to_test)
+        import src.CodeChecker.tmp
+        importlib.reload(src.CodeChecker.tmp)
         msg="This function did not raise any error."
         if key=='7':
             entries = test_entries[key]
@@ -41,7 +41,7 @@ def check_for_errors(key):
                     L[i]=sorted(L[i])
                 return sorted(L)
             for (i,entry) in enumerate(entries):
-                if not sort(src.function_to_test.function_to_test.function(entry)) == sort(expected_outputs[i]):
+                if not sort(src.CodeChecker.tmp.function(entry)) == sort(expected_outputs[i]):
                     boolean = False
                     break
         else:
@@ -49,7 +49,7 @@ def check_for_errors(key):
             expected_outputs = test_example_output[key]
             boolean = True
             for (i,entry) in enumerate(entries):
-                if not src.function_to_test.function_to_test.function(entry) == expected_outputs[i]:
+                if not src.CodeChecker.tmp.function(entry) == expected_outputs[i]:
                     boolean = False
                     break 
 

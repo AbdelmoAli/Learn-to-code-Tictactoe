@@ -7,12 +7,6 @@ from PyQt5.QtCore import QUrl
 def main():
     app = QApplication([])
     mw = MainWindow()
-
-    player = QMediaPlayer();
-    player.setMedia(QMediaContent(QUrl().fromLocalFile("bis.mp3")));
-    player.setVolume(100);
-    player.play();
-
     mw.showMaximized()
     app.exec_()
 

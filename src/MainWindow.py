@@ -2,14 +2,14 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QPainter, QColor, QIcon, QFont
 from PyQt5.QtCore import Qt, QPoint, QUrl
 
-from src.TicTacToeGUI import TicTacToeGUI
-from src.syntax import *
-from src.get_name_of_function import get_name_of_function
+from src.TicTacToe.GUI import TicTacToeGUI
+from src.SyntaxHighlighter.PythonHighlighter import PythonHighlighter
+from src.CodeChecker.get_name_of_function import get_name_of_function
+from src.CodeChecker.check_errors import check_for_errors
 
 from os.path import exists
 from os import remove
 
-from src.check_errors import check_for_errors
 
 class MainWindow(QMainWindow):
     """
@@ -92,7 +92,7 @@ class MainWindow(QMainWindow):
                 ancient_code += self.submitted_functions[i].replace('\n','\n\t')
                 ancient_code += '\n'
 
-            with open("src/function_to_test/function_to_test.py", "w") as fichier:
+            with open("src/CodeChecker/tmp.py", "w") as fichier:
                 fichier.write('def function(L):\n' + ancient_code + '\t' + user_code + '\treturn (' + name + '(*L))' )
             
             no_errors, msg  = check_for_errors(str(self.level))
@@ -189,5 +189,5 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(widget)
     
     def closeEvent(self, event):
-        path = "src/function_to_test/function_to_test.py"
+        path = "src/CodeChecker/tmp.py"
         if exists(path): remove(path)
