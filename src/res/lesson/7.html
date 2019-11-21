@@ -5,7 +5,7 @@
             @page { size: 8.5in 11in; margin: 0.1in }
             p {  background: transparent; color:black ; font-family: "Courier", monospace; font-size: 5pt}
             div {font-size: 10pt; margin : 1px 3px 3px 1px}
-            block{ background-color:#f0f0f0 ;}
+            block{ background-color:#666666c9 ;}
         </style>
     </head>
     <body style="color: #282923; background-color:white">
@@ -17,24 +17,24 @@
      First, you will need to learn how to concatenate two lists. Here's how you would add <block>[1,2]</block> and <block>[3,4]</block>
     to get a list <block>new_list</block> equal to <block>[1,2,3,4]</block>:</p>
 
-    <!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">new_list <span style="color: #666666">=</span> [<span style="color: #40a070">1</span>,<span style="color: #40a070">2</span>]<span style="color: #666666">+</span>[<span style="color: #40a070">3</span>,<span style="color: #40a070">4</span>]
+    <!-- HTML generated using hilite.me --><div style="background: #666666c9; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 100%">new_list <span style="color: #666666">=</span> [<span style="color: #40a070">1</span>,<span style="color: #40a070">2</span>]<span style="color: #666666">+</span>[<span style="color: #40a070">3</span>,<span style="color: #40a070">4</span>]
 </pre></div>
 
     <p>In general, you will write :</p>
 
-    <!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">new_list <span style="color: #666666">=</span> list_1 <span style="color: #666666">+</span> list_2
+    <!-- HTML generated using hilite.me --><div style="background: #666666c9; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0;00">new_list <span style="color: #666666">=</span> list_1 <span style="color: #666666">+</span> list_2
 </pre></div>
 
     <p>You can also keep the variable <block>list_1</block> and grow it by adding the elements of <block>list_2</block>:</p>
 
-    <!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">list_1<span style="color: #666666">+=</span>list_2</pre></div>
+    <!-- HTML generated using hilite.me --><div style="background: #666666c9; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0;00">list_1<span style="color: #666666">+=</span>list_2</pre></div>
 
     <p><block>list_1</block> now contains the original elements followed by the elements of <block>list_2</block>.</p>
     
     <p>So you'll first create a variable called rows  containing an empty list and then get all the rows from the 
     grid using <block>+=</block>>; you'll write something like this:</p>
 
-    <!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #007020; font-weight: bold">for</span> i <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #40a070">3</span>):
+    <!-- HTML generated using hilite.me --><div style="background: #666666c9; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0;00"><span style="color: #007020; font-weight: bold">for</span> i <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #40a070">3</span>):
         <span style="color: #007020; font-weight: bold">for</span> j <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #40a070">3</span>):
         rows<span style="color: #666666">+=</span>[<span style="color: #666666">...</span>]
 </pre></div>
