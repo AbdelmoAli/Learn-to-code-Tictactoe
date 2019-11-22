@@ -3,7 +3,7 @@
         <style>
             h1, h2{color:#b50505}
             @page { size: 8.5in 11in; margin: 0.1in }
-            p {  background: transparent; color:black ; font-family: "Courier", monospace; font-size: 5pt}
+            p {  background: transparent; color:black ; font-family: "Computer Modern", monospace; font-size: 5pt}
             div {font-size: 10pt; margin : 1px 3px 3px 1px}
             block{ background-color:#666666c9 ;}
         </style>
@@ -16,25 +16,27 @@
     have a test called <block>>my_test</block> that returns <block>True</block> and you want to perform a task that depends
     on the success of this test. Here's how you would do it:</p>
 
-<!-- HTML generated using hilite.me --><div style="background: #666666c9; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 100%">If my_test <span style="color: #666666">==</span> <span style="color: #007020">True</span> :
-    operation
+<!-- HTML generated using hilite.me --><div style="background: #666666c9; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 100%"><span style="color: #007020; font-weight: bold">if</span> my_test <span style="color: #666666">==</span> <span style="color: #007020">True</span> :
+    operation 
 </pre></div>
 </p>
 <p>
     for instance here's a simple example:
 </p>  
-    <!-- HTML generated using hilite.me --><div style="background: #666666c9; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0;00">If <span style="color: #40a070">3</span><span style="color: #666666">&lt;=</span><span style="color: #40a070">2</span>:
-        <span style="color: #007020; font-weight: bold">print</span>(<span style="color: #40a070">2</span>)
+<!-- HTML generated using hilite.me --><div style="background:  #666666c9; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 100%"><span style="color: #007020; font-weight: bold">if</span> <span style="color: #40a070">3</span><span style="color: #666666">&lt;=</span><span style="color: #40a070">2</span>:
+    <span style="color: #007020; font-weight: bold">print</span>(<span style="color: #40a070">2</span>)  
 </pre></div>
+
     <p>   Here python won't print <block>2</block> because the test following the if returns . But you can perform a task even when the if
         statement is <block>False</block>. You use the else synthax and <block>print(2)</block> anyway.</p>
  
 
-   <!-- HTML generated using hilite.me --><div style="background: #666666c9; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0;00"> If <span style="color: #40a070">3</span><span style="color: #666666">&lt;=</span><span style="color: #40a070">2</span>:
+   <!-- HTML generated using hilite.me --><div style="background:  #666666c9; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 100%"><span style="color: #007020; font-weight: bold">if</span> <span style="color: #40a070">3</span><span style="color: #666666">&lt;=</span><span style="color: #40a070">2</span>:
     <span style="color: #007020; font-weight: bold">print</span>(<span style="color: #40a070">2</span>)
-    <span style="color: #007020; font-weight: bold">else</span>:
-        <span style="color: #007020; font-weight: bold">print</span>(<span style="color: #40a070">2</span>)
+<span style="color: #007020; font-weight: bold">else</span>:
+    <span style="color: #007020; font-weight: bold">print</span>(<span style="color: #40a070">2</span>) 
 </pre></div>
+
     
     <p>Now I want you to write a function called switch that takes a mark ( i.e a string, either &quot;X&quot; or &quot;O&quot;) and
        does the following operation : if the the mark is a cross, it return an <block>O</block> and vice versa. You can use an <block>if...else</block>
