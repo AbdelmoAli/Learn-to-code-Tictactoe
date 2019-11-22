@@ -6,7 +6,7 @@
 Educational Game to learn Python:
 
 We know that starting to learn a programming language can be discouraging since a real project needs a little bit of experience.
-This application, which targets beginners or people fond of TicTacToe allow you to discover the rich and usefullness of Python by coding a Game, so that what the code you're writing lives in front of you.
+This application, which targets beginners (or people fond of TicTacToe), allows you to discover the rich and usefullness of Python by coding a Game, so that what the code you're writing lives in front of you.
 
 How does it work? Well you'll have to read the different lessons step by step, and code the function it demands, and you'll see your game TicTacToe evolving... and you'll be able to play with your friends.
 
