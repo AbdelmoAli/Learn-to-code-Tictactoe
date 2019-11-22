@@ -1,9 +1,9 @@
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](code-of-conduct.md)
 [![Pull Requests Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com)
 
-# CodingWeek tic-tac-toe
+# Learn Python by coding TicTacToe
 
-Educational Game to learn Python:
+An educational game to learn Python.
 
 We know that starting to learn a programming language can be discouraging since a real project needs a little bit of experience.
 This application, which targets beginners (or people fond of TicTacToe), allows you to discover the richness and usefulness of Python by coding a Game, so that what the code you're writing lives in front of you.
@@ -32,9 +32,9 @@ We chose TicTacToe for its simplicity as a first game to code, but it's up to yo
 [Pascual Romain](https://github.com/romainpascual)
 
 ## Credits
-QtStylesheet largely inspired by this [Darkorange stylesheet](http://discourse.techart.online/t/release-qt-dark-orange-stylesheet/2287). 
-We have used [hilite](http://hilite.me/) which is great at converting code snippets into HTML format.  
-Syntax highlighter from this [Python Wiki](https://wiki.python.org/moin/PyQt/Python%20syntax%20highlighting)
+- QtStylesheet largely inspired by this [Darkorange stylesheet](http://discourse.techart.online/t/release-qt-dark-orange-stylesheet/2287). 
+- We have used [hilite](http://hilite.me/) which is great at converting code snippets into HTML format.  
+- Syntax highlighter from this [Python Wiki](https://wiki.python.org/moin/PyQt/Python%20syntax%20highlighting)
 
 ## Contributing
 [Please follow these steps to contribute](CONTRIBUTING.md).
