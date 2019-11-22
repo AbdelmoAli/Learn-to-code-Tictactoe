@@ -25,7 +25,7 @@ def test_is_empty():
     game.grid[1][1] = ' '
     assert game.is_empty(1,1) == True
 
-def test_is_fulle():
+def test_is_full():
     assert game.is_full() == False
     game.grid = [['X', 'X', 'X'], ['X', 'X', 'X'], ['X', 'X', 'X']]
     assert game.is_full() == True
