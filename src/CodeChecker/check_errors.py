@@ -1,6 +1,6 @@
 import importlib
 
-output_of_7_entry=[ [ ['O','',''], ['','X',''], ['O','','O'], ['O','','O'], ['','X',''], ['','','O'], ['O','X','O'], ['','X','O'] ] ]
+# Test entries 
 
 test_entries = {'1': [[]],
                 '2':[ [ [['O','',''],['','X',''],['','','']] , 0, 0] , [ [['O','',''],['','X',''],['','','']] , 0, 1]],
@@ -12,6 +12,10 @@ test_entries = {'1': [[]],
                 '8':[ [ [['O','',''],['O','X',''],['','X','O']] ], [ [['O','',''],['O','X',''],['O','0','O']] ] ],
                 '9':[ [ [['O','',''],['O','X',''],['O','0','O']] ], [ [['O','',''],['O','X',''],['X','X','X']] ] ],
                 '10':[ [ [['O','X','O'],['X','O','O'],['O','X','O']] ], [ [['O','X','O'],['X','O','O'],['O','','O']] ] ]}
+
+output_of_7_entry=[ [ ['O','',''], ['','X',''], ['O','','O'], ['O','','O'], ['','X',''], ['','','O'], ['O','X','O'], ['','X','O'] ] ]
+
+# Test outputs 
 
 test_example_output = { '1': [ [['' ,'' ,''], ['' ,'' ,''], ['' ,'' ,'']] ], 
                         '2': ['O', ''],
@@ -26,6 +30,13 @@ test_example_output = { '1': [ [['' ,'' ,''], ['' ,'' ,''], ['' ,'' ,'']] ],
                         }
 
 def check_for_errors(key):
+
+    """
+    Takes the key of the function to test and:
+    - check for errors of syntax, indentation,...
+    - check the purpose of the function
+    """
+    
     boolean = False
     msg=""
     try:

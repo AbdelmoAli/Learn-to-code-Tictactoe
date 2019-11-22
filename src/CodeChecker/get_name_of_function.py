@@ -1,4 +1,10 @@
 def get_name_of_function(file):
+    
+    '''
+    Takes a function as parameter
+    Returns the well indented function, and its name
+    '''
+
     new_file = file.split('\n')
     name=""
     L=[]
