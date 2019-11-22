@@ -32,9 +32,9 @@ We chose TicTacToe for its simplicity as a first game to code, but it's up to yo
 [Pascual Romain](https://github.com/romainpascual)
 
 ## Credits
-QtStylesheet largely inspired by this [Darkorange stylesheet](http://discourse.techart.online/t/release-qt-dark-orange-stylesheet/2287). 
-We have used [hilite](http://hilite.me/) which is great at converting code snippets into HTML format.  
-Syntax highlighter from this [Python Wiki](https://wiki.python.org/moin/PyQt/Python%20syntax%20highlighting)
+- QtStylesheet largely inspired by this [Darkorange stylesheet](http://discourse.techart.online/t/release-qt-dark-orange-stylesheet/2287). 
+- We have used [hilite](http://hilite.me/) which is great at converting code snippets into HTML format.  
+- Syntax highlighter from this [Python Wiki](https://wiki.python.org/moin/PyQt/Python%20syntax%20highlighting)
 
 ## Contributing
 [Please follow these steps to contribute](CONTRIBUTING.md).
